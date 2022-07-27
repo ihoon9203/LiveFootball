@@ -8,11 +8,18 @@
 import UIKit
 
 class FixtureDetailViewController: UIViewController {
-
+    
+    var fixtureCode: Int?
+    var lineupList: LineupModelList?
+    let fixtureDetailVM = FixtureDetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fixtureDetailVM.delegate = self
+        if let fixtureCode = fixtureCode {
+            fixtureDetailVM.getLineupList(fixtureCode)
+        }
+        
     }
     
 
@@ -26,4 +33,9 @@ class FixtureDetailViewController: UIViewController {
     }
     */
 
+}
+extension FixtureDetailViewController: FixtureDetailCommunicationProtocol {
+    func notifyLineupDataProvided(_ lineup: LineupModelList) {
+        lineupList = lineup
+    }
 }

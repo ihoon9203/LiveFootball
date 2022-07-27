@@ -51,13 +51,13 @@ struct StandingModelList {
     }
 }
 struct TeamWithStandingModel {
-    var rank: Int?
-    var played: Int?
-    var win: Int?
-    var draw: Int?
-    var goals: Int?
-    var goalsAgainst: Int?
-    var teamInfo: TeamModel
+    let rank: Int?
+    let played: Int?
+    let win: Int?
+    let draw: Int?
+    let goals: Int?
+    let goalsAgainst: Int?
+    let teamInfo: TeamModel
     init(_ data: Stand) {
         rank = data.rank
         played = data.all.played
@@ -69,9 +69,9 @@ struct TeamWithStandingModel {
     }
 }
 struct TeamModel {
-    var id: Int?
-    var name: String?
-    var logo: String?
+    let id: Int?
+    let name: String?
+    let logo: String?
     init(_ data: TeamInfo) {
         id = data.id
         name = data.name

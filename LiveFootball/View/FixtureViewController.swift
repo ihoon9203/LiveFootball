@@ -53,7 +53,7 @@ extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, Fix
                 guard let name = leagueList?.leagues?[i].name else { return }
             }
         } catch {
-            
+            print("not enough leagues")
         }
     }
     

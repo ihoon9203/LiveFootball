@@ -10,6 +10,7 @@ import Foundation
 class FixtureViewModel {
     let countryParser = CountriesSessionDataParser()
     let leagueParser = LeaguesSessionDataParser()
+    let fixtureParser = FixtureSessionDataParser()
     weak var delegate: FixtureCommunicationProtocol?
     func getCountryList() {
         let countryAPIURL = Constants.baseURL+Constants.countryEndpoint
@@ -67,8 +68,22 @@ class FixtureViewModel {
             request.httpMethod = "GET"
         }
     }
-//    func getRangedFixtureData(range: Int) {
-//        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+now
-//    }
+    func getRangedFixtureData(range: Int) {
+        let (from, to) = ReturnRangedDate.provideRangedDate(range)
+        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+from+"&"+Constants.paramDateTo+to
+        if let url = URL(string: fixtureAPIURL) {
+            var request = URLRequest(url: url)
+            request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
+            request.httpMethod = "GET"
+            
+            fixtureParser.parseRequestToSimpleFixtures(request: request) { simpleFixtures in
+                print(simpleFixtures)
+                self.delegate?.notifySimpleFixturesProvided(simpleFixtures)
+            } onFailure: { error in
+                print(error)
+            }
+
+        }
+    }
 }
 
