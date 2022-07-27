@@ -18,3 +18,7 @@ struct LeagueInfo: Codable {
     let name: String?
     let logo: String?
 }
+
+struct LeagueModel {
+    
+}

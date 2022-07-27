@@ -15,3 +15,10 @@ struct Country: Codable {
     let code: String?
     let flag: String?
 }
+
+struct CountryModelList {
+    let countries: [Country]
+    init(data: Countries) {
+        countries = data.response
+    }
+}

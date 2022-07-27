@@ -30,6 +30,6 @@ class Constants {
     static let paramFixtureID = "id="
     static let paramPlayerID = "id="
     
-    static let apiKey = "&apiKey="
+    static let apiKey = "X-RapidAPI-Key"
     static let key = "726f66a6c7mshc08a20e5b68b867p136a3cjsn787b6c5ccf4b"
 }
