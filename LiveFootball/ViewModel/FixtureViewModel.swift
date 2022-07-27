@@ -68,17 +68,17 @@ class FixtureViewModel {
             request.httpMethod = "GET"
         }
     }
-    func getRangedFixtureData(range: Int) {
+    func getRangedFixtureData(range: Int, leagueCode: Int, season: Int) {
         let (from, to) = ReturnRangedDate.provideRangedDate(range)
-        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+from+"&"+Constants.paramDateTo+to
+        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+from+"&"+Constants.paramDateTo+to+"&"+Constants.paramLeagueCode + String(leagueCode)+"&"+Constants.paramSeason+String(season)
         if let url = URL(string: fixtureAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
             request.httpMethod = "GET"
             
-            fixtureParser.parseRequestToSimpleFixtures(request: request) { simpleFixtures in
-                print(simpleFixtures)
-                self.delegate?.notifySimpleFixturesProvided(simpleFixtures)
+            fixtureParser.parseRequestToSimpleFixtures(request: request) { simpleFixtureList in
+                print(simpleFixtureList)
+                self.delegate?.notifySimpleFixturesProvided(simpleFixtureList)
             } onFailure: { error in
                 print(error)
             }

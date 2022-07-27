@@ -15,6 +15,7 @@ class FixtureViewController: UIViewController {
     var countryList: CountryModelList?
     var leagueList: LeagueModelList?
     var teamList: StandingModelList?
+    var simpleFixtures: SimpleFixtureModelList?
     let fixtureViewModel = FixtureViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,10 @@ class FixtureViewController: UIViewController {
 }
 
 extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, FixtureCommunicationProtocol {
+    func notifySimpleFixturesProvided(_ fixtures: SimpleFixtureModelList) {
+        simpleFixtures = fixtures
+    }
+    
     func notifyStandingDataProvided(_ standing: StandingModelList) {
         teamList = standing
     }
