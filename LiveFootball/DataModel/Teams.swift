@@ -22,3 +22,13 @@ struct TeamInfo: Codable {
 struct Venue: Codable {
     let name: String?
 }
+//struct TeamModelList {
+//    var teams: [TeamModel]?
+//    init(data: Teams) {
+//        var localTeams = [TeamModel]()
+//        for team in data.response {
+//            let team = TeamModel(team)
+//        }
+//        teams = localTeams
+//    }
+//}

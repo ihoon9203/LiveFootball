@@ -10,18 +10,25 @@ import UIKit
 class FixtureViewController: UIViewController {
 
     @IBOutlet weak var fixtureDatePicker: UIDatePicker!
-    @IBOutlet weak var nationPicker: UIButton!
+    @IBOutlet weak var countryPicker: UITextField!
     @IBOutlet weak var leaguePicker: UIButton!
-    
+    var countryList: CountryModelList?
+    var leagueList: LeagueModelList?
+    var teamList: StandingModelList?
     let fixtureViewModel = FixtureViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         fixtureViewModel.delegate = self
         fixtureViewModel.getCountryList()
+        fixtureViewModel.getLeagueList(code: "GB", season: 2022)
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func searchLeague(_ sender: Any) {
+        guard let code = countryPicker.text else { return }
+        fixtureViewModel.getLeagueList(code: code, season: 2022)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -35,8 +42,23 @@ class FixtureViewController: UIViewController {
 }
 
 extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, FixtureCommunicationProtocol {
-    func notifyFixtureDataProvided(_ countries: CountryModelList) {
-        nationPicker.menu?.
+    func notifyStandingDataProvided(_ standing: StandingModelList) {
+        teamList = standing
+    }
+    
+    func notifyLeagueDataProvided(_ leagues: LeagueModelList) {
+        leagueList = leagues
+        do {
+            for i in 0...4 {
+                guard let name = leagueList?.leagues?[i].name else { return }
+            }
+        } catch {
+            
+        }
+    }
+    
+    func notifyCountryDataProvided(_ countries: CountryModelList) {
+        countryList = countries
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

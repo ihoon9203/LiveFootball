@@ -37,3 +37,44 @@ struct Goals: Codable {
     let `for` : Int?
     let against: Int?
 }
+
+struct StandingModelList {
+    var teams: [TeamWithStandingModel]?
+    init(_ data: Standing) {
+        var localTeams = [TeamWithStandingModel]()
+        let allStanding = data.response[0].league.standings[0]
+        
+        for item in allStanding {
+            let team = TeamWithStandingModel(item)
+        }
+        teams = localTeams
+    }
+}
+struct TeamWithStandingModel {
+    var rank: Int?
+    var played: Int?
+    var win: Int?
+    var draw: Int?
+    var goals: Int?
+    var goalsAgainst: Int?
+    var teamInfo: TeamModel
+    init(_ data: Stand) {
+        rank = data.rank
+        played = data.all.played
+        win = data.all.win
+        draw = data.all.draw
+        goals = data.all.goals?.`for`
+        goalsAgainst = data.all.goals?.against
+        teamInfo = TeamModel(data.team)
+    }
+}
+struct TeamModel {
+    var id: Int?
+    var name: String?
+    var logo: String?
+    init(_ data: TeamInfo) {
+        id = data.id
+        name = data.name
+        logo = data.logo
+    }
+}

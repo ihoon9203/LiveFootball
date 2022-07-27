@@ -19,6 +19,15 @@ struct LeagueInfo: Codable {
     let logo: String?
 }
 
-struct LeagueModel {
-    
+struct LeagueModelList {
+    var leagues: [LeagueInfo]?
+    init(data: Leagues) {
+        var localLeagues = [LeagueInfo]()
+        var allLeagues = data.response
+        allLeagues = allLeagues.sorted { $0.league.id < $1.league.id }
+        for i in 0...3 {
+            localLeagues.append(allLeagues[i].league)
+        }
+        leagues = localLeagues
+    }
 }

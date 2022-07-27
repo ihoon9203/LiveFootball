@@ -127,48 +127,66 @@
                                     <constraint firstAttribute="height" constant="121" id="PAG-HE-bKH"/>
                                 </constraints>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THD-xu-JEp">
-                                <rect key="frame" x="178" y="266" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="VVR-AY-gZt">
-                                    <children>
-                                        <command title="Item 1" id="1xy-wD-zgJ"/>
-                                        <command title="Item 2" id="NnZ-dt-Qmg"/>
-                                    </children>
-                                </menu>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWV-zf-YeX">
+                                <rect key="frame" x="20" y="273" width="97" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Gqb-Zn-Ub9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAW-T0-gZh">
+                                <rect key="frame" x="314" y="275" width="80" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="kkW-hG-5ke"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Nation"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="searchLeague:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SVf-Xl-aWt"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqR-wk-o3s">
-                                <rect key="frame" x="286" y="266" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="X2z-be-F5B">
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tc-dG-PAv">
+                                <rect key="frame" x="157" y="277" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="XmS-u8-1hb"/>
+                                </constraints>
+                                <menu key="menu" id="JSk-Ra-Usd">
                                     <children>
-                                        <command title="Item 1" id="ETI-ft-L1I"/>
-                                        <command title="Item 2" id="Wuf-94-BPz"/>
+                                        <command title="Item 1" id="JbJ-Iw-wPd"/>
+                                        <command title="Item 2" id="X6f-7x-adl"/>
+                                        <command title="Item 3" id="ppy-zT-fMG"/>
+                                        <command title="Item 4" id="QXP-0z-AUE"/>
                                     </children>
                                 </menu>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="League"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yAW-T0-gZh" firstAttribute="top" secondItem="q3T-of-ayw" secondAttribute="bottom" constant="64" id="04J-wz-rx6"/>
+                            <constraint firstItem="KWV-zf-YeX" firstAttribute="centerY" secondItem="yAW-T0-gZh" secondAttribute="centerY" id="7d5-pA-fzd"/>
+                            <constraint firstItem="yAW-T0-gZh" firstAttribute="top" secondItem="KWV-zf-YeX" secondAttribute="top" id="8iv-jU-dZF"/>
+                            <constraint firstItem="yAW-T0-gZh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="AYK-N6-lPu"/>
+                            <constraint firstItem="KWV-zf-YeX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ICc-PO-Bv1"/>
                             <constraint firstItem="q3T-of-ayw" firstAttribute="trailing" secondItem="RO5-oT-D5E" secondAttribute="trailing" id="PYq-ON-YpM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Tc-dG-PAv" secondAttribute="bottom" constant="506" id="S3B-7s-7us"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RO5-oT-D5E" secondAttribute="bottom" constant="34" id="S4Q-Lj-q0r"/>
                             <constraint firstItem="q3T-of-ayw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WW9-aK-tWN"/>
+                            <constraint firstItem="3Tc-dG-PAv" firstAttribute="bottom" secondItem="KWV-zf-YeX" secondAttribute="bottom" id="ahd-Zf-rB0"/>
                             <constraint firstItem="q3T-of-ayw" firstAttribute="leading" secondItem="RO5-oT-D5E" secondAttribute="leading" id="aiY-Pt-UYQ"/>
                             <constraint firstItem="RO5-oT-D5E" firstAttribute="top" secondItem="q3T-of-ayw" secondAttribute="bottom" constant="95" id="al5-EC-k6d"/>
                             <constraint firstItem="q3T-of-ayw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gfk-EH-QOP"/>
+                            <constraint firstItem="3Tc-dG-PAv" firstAttribute="centerX" secondItem="q3T-of-ayw" secondAttribute="centerX" id="mEY-ty-g9V"/>
                             <constraint firstItem="q3T-of-ayw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zqL-tj-NTg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A9j-ba-UIO"/>
                     <connections>
+                        <outlet property="countryPicker" destination="KWV-zf-YeX" id="vT6-fL-3p7"/>
                         <outlet property="fixtureDatePicker" destination="q3T-of-ayw" id="cxU-Ir-73X"/>
-                        <outlet property="leaguePicker" destination="YqR-wk-o3s" id="b9v-Li-fUU"/>
-                        <outlet property="nationPicker" destination="THD-xu-JEp" id="n2e-MB-NH7"/>
+                        <outlet property="leaguePicker" destination="3Tc-dG-PAv" id="4hc-xW-mpx"/>
                         <segue destination="zYE-QO-bnW" kind="show" id="72H-bf-0ll"/>
                     </connections>
                 </viewController>
@@ -368,6 +386,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WTp-Wb-x4C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="imB-1o-P1E">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

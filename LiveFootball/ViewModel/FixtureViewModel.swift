@@ -9,6 +9,7 @@ import Foundation
 
 class FixtureViewModel {
     let countryParser = CountriesSessionDataParser()
+    let leagueParser = LeaguesSessionDataParser()
     weak var delegate: FixtureCommunicationProtocol?
     func getCountryList() {
         let countryAPIURL = Constants.baseURL+Constants.countryEndpoint
@@ -19,7 +20,7 @@ class FixtureViewModel {
             
             countryParser.parseRequestToCountries(request: request) { countries in
                 print(countries)
-                self.delegate?.notifyFixtureDataProvided(countries)
+                self.delegate?.notifyCountryDataProvided(countries)
             } onFailure: { error in
                 print(error)
             }
@@ -32,6 +33,15 @@ class FixtureViewModel {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
             request.httpMethod = "GET"
+            
+            leagueParser.parseRequestToLeagues(request: request) { leagues in
+                print(leagues)
+                self.delegate?.notifyLeagueDataProvided(leagues)
+            } onFailure: { error in
+                print(error)
+            }
+
+            
         }
     }
     func getTeamsData(season: Int, league: Int) {
@@ -40,6 +50,13 @@ class FixtureViewModel {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
             request.httpMethod = "GET"
+            
+            leagueParser.parseRequestToLeagues(request: request) { leagues in
+                print(leagues)
+                self.delegate?.notifyLeagueDataProvided(leagues)
+            } onFailure: { error in
+                print(error)
+            }
         }
     }
     func getSquadData(team: Int){
@@ -50,8 +67,8 @@ class FixtureViewModel {
             request.httpMethod = "GET"
         }
     }
-    func getFixtureData() {
-        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint
-    }
+//    func getRangedFixtureData(range: Int) {
+//        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+now
+//    }
 }
 
