@@ -31,5 +31,5 @@ protocol LeagueCommunicationProtocol: NSObject {
 }
 
 protocol TeamCommunicationProtocol: NSObject {
-    func notifyTeamStatisticDataProvided(_ teamStat: TeamStat)
+    func notifyTeamStatisticDataProvided(_ teamStat: TeamStatistic)
 }

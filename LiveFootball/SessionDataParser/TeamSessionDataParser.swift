@@ -21,12 +21,12 @@ class TeamSessionDataParser {
         }
         task.resume()
     }
-    func parseRequestToTeamStatistics (request: URLRequest, onSuccess: @escaping (Team)->(), onFailure: @escaping (Error) -> ()) {
+    func parseRequestToTeamStatistics (request: URLRequest, onSuccess: @escaping (TeamStatistic)->(), onFailure: @escaping (Error) -> ()) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {
-                    let jsonData = try JSONDecoder().decode(Teams.self, from: data)
-                    let record = TeamInfo(team: jsonData.response[0])
+                    let jsonData = try JSONDecoder().decode(TeamStatisticData.self, from: data)
+                    let record = jsonData.response
                     onSuccess(record)
                 }
             } catch {
@@ -34,5 +34,5 @@ class TeamSessionDataParser {
             }
         }
         task.resume()
-    })
+    }
 }

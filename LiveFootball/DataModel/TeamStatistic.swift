@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct TeamStatistic: Codable {
-    let response: Response
+struct TeamStatisticData: Codable {
+    let response: TeamStatistic
 }
-struct Response: Codable {
+struct TeamStatistic: Codable {
     let biggest: Big
     let clean_sheet: MatchGoalStatistic
     let failed_to_score: MatchGoalStatistic
