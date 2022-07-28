@@ -7,12 +7,12 @@
 
 import Foundation
 class MatchSessionDataParser {
-    func parseRequestToGeneralFixtures (request: URLRequest, onSuccess: @escaping (PreviousMatchModelList)->(), onFailure: @escaping (Error) -> ()) {
+    func parseRequestToGeneralFixtures (request: URLRequest, onSuccess: @escaping (MatchModel)->(), onFailure: @escaping (Error) -> ()) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {
-                    let jsonData = try JSONDecoder().decode(PreviousMatch.self, from: data)
-                    let matchList = PreviousMatchModelList(data: jsonData)
+                    let jsonData = try JSONDecoder().decode(Match.self, from: data)
+                    let matchList = MatchModel(data: jsonData)
                     onSuccess(matchList)
                 }
             } catch {

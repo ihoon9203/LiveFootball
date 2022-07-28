@@ -39,10 +39,12 @@ struct GoalData: Codable {
 struct SimpleFixtureModelList {
     let fixtures: [SimpleFixtureModel] // (date, model)
     init(_ data: FixtureAnalysis) {
+        var localFixtures: [SimpleFixtureModel] = []
         for item in data.response {
             let model = SimpleFixtureModel(item)
-            fixtures.append(model)
+            localFixtures.append(model)
         }
+        fixtures = localFixtures
     }
 }
 struct SimpleFixtureModel {

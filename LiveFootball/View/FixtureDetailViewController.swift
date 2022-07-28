@@ -11,6 +11,7 @@ class FixtureDetailViewController: UIViewController {
     
     var fixtureCode: Int?
     var lineupList: LineupModelList?
+    var matchModel: MatchModel?
     let fixtureDetailVM = FixtureDetailViewModel()
     
     override func viewDidLoad() {
@@ -35,7 +36,12 @@ class FixtureDetailViewController: UIViewController {
 
 }
 extension FixtureDetailViewController: FixtureDetailCommunicationProtocol {
-    func notifyLineupDataProvided(_ lineup: LineupModelList) {
+    func notifyFixtureDataProvided(_ fixture: MatchModel) {
+        matchModel = fixture
+    }
+    
+    func notifyLineupDataProvided(_ lineup: LineupModelList) { // optional (not for future fixture)
         lineupList = lineup
     }
+    
 }

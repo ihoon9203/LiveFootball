@@ -9,6 +9,7 @@ import Foundation
 
 class FixtureDetailViewModel {
     let lineupSessionDataParser = LineupSessionDataParser()
+    let matchSessionDataParser = MatchSessionDataParser()
     
     weak var delegate: FixtureDetailCommunicationProtocol?
     func getLineupList(_ fixtureCode: Int) {
@@ -28,19 +29,17 @@ class FixtureDetailViewModel {
         }
     }
     func getMatchData(_ fixtureCode: Int) {
-        let lineupAPIURL = Constants.baseURL+Constants.lineupEndpoint+"?"+Constants.paramFixtureID+String(fixtureCode)
-        if let url = URL(string: lineupAPIURL) {
+        let matchAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramFixtureID+String(fixtureCode)
+        if let url = URL(string: matchAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
             request.httpMethod = "GET"
             
-            lineupSessionDataParser.parseRequestToLineup(request: request) { lineup in
-                print(lineup)
-                self.delegate?.notifyFixtureDataProvided(lineup)
+            matchSessionDataParser.parseRequestToGeneralFixtures(request: request) { matchModel in
+                self.delegate?.notifyFixtureDataProvided(matchModel)
             } onFailure: { error in
                 print(error)
             }
-
         }
     }
 }

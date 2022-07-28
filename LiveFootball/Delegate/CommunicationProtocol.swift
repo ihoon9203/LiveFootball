@@ -16,5 +16,5 @@ protocol FixtureCommunicationProtocol: NSObject {
 
 protocol FixtureDetailCommunicationProtocol: NSObject {
     func notifyLineupDataProvided(_ lineup: LineupModelList)
-    func notifyFixtureDataProvided(_ fixture: FixtureModel)
+    func notifyFixtureDataProvided(_ fixture: MatchModel)
 }
