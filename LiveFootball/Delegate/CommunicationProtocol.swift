@@ -10,7 +10,6 @@ import Foundation
 protocol FixtureCommunicationProtocol: NSObject {
     func notifyCountryDataProvided(_ countries: CountryModelList)
     func notifyLeagueDataProvided(_ leagues: LeagueModelList)
-    func notifyStandingDataProvided(_ standing: StandingModelList)
     func notifySimpleFixturesProvided(_ fixtures: SimpleFixtureModelList)
 }
 
@@ -23,4 +22,8 @@ protocol FixtureDetailCommunicationProtocol: NSObject {
 
 protocol PlayerCommunicationProtocol: NSObject {
     func notifyPlayerDataProvided(_ player: PlayerInfo)
+}
+protocol LeagueCommunicationProtocol: NSObject {
+    func notifyLeagueDataProvided(_ league: LeagueModelList)
+    func notifyStandingDataProvided(_ standing: StandingModelList)
 }

@@ -41,8 +41,6 @@ class FixtureViewModel {
             } onFailure: { error in
                 print(error)
             }
-
-            
         }
     }
     func getTeamsData(season: Int, league: Int) {

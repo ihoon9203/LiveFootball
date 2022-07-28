@@ -10,6 +10,7 @@ import UIKit
 class PlayerViewController: UIViewController {
     
     let playerInfoViewModel = PlayerInfoViewModel()
+    var playerInfo: PlayerInfo?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +28,11 @@ class PlayerViewController: UIViewController {
     }
     */
 
+}
+extension PlayerViewController: PlayerCommunicationProtocol {
+    func notifyPlayerDataProvided(_ player: PlayerInfo) {
+        playerInfo = player
+    }
+    
+    
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class StandingsSessionDataParser {
-    func parseRequestToTeams(request: URLRequest, onSuccess: @escaping (StandingModelList)->(), onFailure: @escaping (Error) -> ()) {
+    func parseRequestToStanding(request: URLRequest, onSuccess: @escaping (StandingModelList)->(), onFailure: @escaping (Error) -> ()) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {

@@ -14,7 +14,6 @@ class FixtureViewController: UIViewController {
     @IBOutlet weak var leaguePicker: UIButton!
     var countryList: CountryModelList?
     var leagueList: LeagueModelList?
-    var teamList: StandingModelList?
     var simpleFixtures: SimpleFixtureModelList?
     let fixtureViewModel = FixtureViewModel()
     override func viewDidLoad() {
@@ -45,10 +44,6 @@ class FixtureViewController: UIViewController {
 extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, FixtureCommunicationProtocol {
     func notifySimpleFixturesProvided(_ fixtures: SimpleFixtureModelList) {
         simpleFixtures = fixtures
-    }
-    
-    func notifyStandingDataProvided(_ standing: StandingModelList) {
-        teamList = standing
     }
     
     func notifyLeagueDataProvided(_ leagues: LeagueModelList) {

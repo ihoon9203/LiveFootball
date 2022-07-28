@@ -9,6 +9,9 @@ import UIKit
 
 class LeagueViewController: UIViewController {
 
+    let leaueViewModel = LeagueViewModel()
+    var leagueList: LeagueModelList?
+    var standing: StandingModelList?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +29,14 @@ class LeagueViewController: UIViewController {
     }
     */
 
+}
+extension LeagueViewController: LeagueCommunicationProtocol {
+    func notifyLeagueDataProvided(_ league: LeagueModelList) {
+        leagueList = league
+    }
+    func notifyStandingDataProvided(_ standing: StandingModelList) {
+        self.standing = standing
+    }
+    
+    
 }
