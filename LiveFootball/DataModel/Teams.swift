@@ -18,13 +18,17 @@ struct TeamInfo: Codable {
     let id: Int?
     let name: String?
     let logo: String?
+    init(team: Team) {
+        id = team.team.id
+        name = team.team.name
+        logo = team.team.logo
+    }
 }
 struct Venue: Codable {
     let name: String?
 }
-//struct TeamModelList {
-//    var teams: [TeamModel]?
-//    init(data: Teams) {
+//struct TeamModel {
+//    init(data: Team) {
 //        var localTeams = [TeamModel]()
 //        for team in data.response {
 //            let team = TeamModel(team)

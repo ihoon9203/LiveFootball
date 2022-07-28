@@ -12,6 +12,7 @@ class LeagueViewController: UIViewController {
     let leaueViewModel = LeagueViewModel()
     var leagueList: LeagueModelList?
     var standing: StandingModelList?
+    var team: TeamInfo?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,12 +32,14 @@ class LeagueViewController: UIViewController {
 
 }
 extension LeagueViewController: LeagueCommunicationProtocol {
+    func notifySpecificTeamSearched(_ team: TeamInfo) {
+        self.team = team
+    }
+    
     func notifyLeagueDataProvided(_ league: LeagueModelList) {
         leagueList = league
     }
     func notifyStandingDataProvided(_ standing: StandingModelList) {
         self.standing = standing
     }
-    
-    
 }
