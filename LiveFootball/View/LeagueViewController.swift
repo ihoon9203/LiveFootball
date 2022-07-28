@@ -13,25 +13,41 @@ class LeagueViewController: UIViewController {
     var leagueList: LeagueModelList?
     var standing: StandingModelList?
     var team: TeamInfo?
+    
+    
+    @IBOutlet weak var league1: UIButton!
+    @IBOutlet weak var league2: UIButton!
+    @IBOutlet weak var league3: UIButton!
+    @IBOutlet weak var league4: UIButton!
+    
+    @IBOutlet weak var searchLeagues: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var countryCodeEditor: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func league1selected(_ sender: Any) {
+    }
+    @IBAction func league2selected(_ sender: Any) {
+    }
+    @IBAction func league3selected(_ sender: Any) {
+    }
+    @IBAction func league4selected(_ sender: Any) {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-extension LeagueViewController: LeagueCommunicationProtocol {
+extension LeagueViewController: LeagueCommunicationProtocol, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
     func notifySpecificTeamSearched(_ team: TeamInfo) {
         self.team = team
     }

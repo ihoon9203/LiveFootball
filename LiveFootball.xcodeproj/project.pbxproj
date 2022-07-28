@@ -50,6 +50,7 @@
 		7A372BC428928DF400044207 /* SimpleFixtureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC328928DF400044207 /* SimpleFixtureTableViewCell.swift */; };
 		7A372BC628928F9100044207 /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC528928F9100044207 /* DateParser.swift */; };
 		7A372BC82892B18F00044207 /* SquadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC72892B18F00044207 /* SquadTableViewCell.swift */; };
+		7A372BCA2892D94E00044207 /* StandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC92892D94E00044207 /* StandingTableViewCell.swift */; };
 		7A79DAD2288F36FA00747D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD1288F36FA00747D6A /* AppDelegate.swift */; };
 		7A79DAD4288F36FA00747D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */; };
 		7A79DAD9288F36FA00747D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DAD7288F36FA00747D6A /* Main.storyboard */; };
@@ -105,6 +106,7 @@
 		7A372BC328928DF400044207 /* SimpleFixtureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFixtureTableViewCell.swift; sourceTree = "<group>"; };
 		7A372BC528928F9100044207 /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
 		7A372BC72892B18F00044207 /* SquadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadTableViewCell.swift; sourceTree = "<group>"; };
+		7A372BC92892D94E00044207 /* StandingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingTableViewCell.swift; sourceTree = "<group>"; };
 		7A79DACE288F36FA00747D6A /* LiveFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A79DAD1288F36FA00747D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7A372BA928926B2A00044207 /* WatchlistViewController.swift */,
 				7A372BC328928DF400044207 /* SimpleFixtureTableViewCell.swift */,
 				7A372BC72892B18F00044207 /* SquadTableViewCell.swift */,
+				7A372BC92892D94E00044207 /* StandingTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				7A372B702890FA8000044207 /* FootballEntity.xcdatamodeld in Sources */,
 				7A372B53289083BB00044207 /* Matches.swift in Sources */,
 				7A372BAA28926B2A00044207 /* WatchlistViewController.swift in Sources */,
+				7A372BCA2892D94E00044207 /* StandingTableViewCell.swift in Sources */,
 				7A372BC428928DF400044207 /* SimpleFixtureTableViewCell.swift in Sources */,
 				7A372BC1289276E900044207 /* TeamList+CoreDataClass.swift in Sources */,
 				7A372BA0289251AB00044207 /* CLLocationManager.swift in Sources */,

@@ -27,7 +27,7 @@ class PlayerViewController: UIViewController {
             return
         }
 
-        playerInfoViewModel.getPlayerInfoData(playerCode: playerId, seasonCode: season)
+         playerInfoViewModel.getPlayerInfoData(playerCode: playerId, seasonCode: season)
         // Do any additional setup after loading the view.
     }
     

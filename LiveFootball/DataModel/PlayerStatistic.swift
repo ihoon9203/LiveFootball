@@ -46,9 +46,9 @@ struct PlayerStat: Codable {
     let penalty: Penalty
 }
 struct Game: Codable {
-    let appearance: Int?
+    let appearances: Int?
     let position: String?
-    let rating: Double?
+    let rating: String?
     let captain: Bool?
 }
 struct Shot: Codable {

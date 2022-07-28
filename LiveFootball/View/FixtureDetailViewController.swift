@@ -42,7 +42,8 @@ class FixtureDetailViewController: UIViewController {
             let destinationVC = segue.destination as! PlayerViewController
             destinationVC.playerId = playerId
             guard let thisDate = matchModel?.date else { return }
-            destinationVC.season = DateParser.getYearFromString(date: thisDate)
+            guard let year = Int(thisDate.split(separator: "-")[0]) else { return }
+            destinationVC.season = String(year - 1)
         }
         if let selectedAwayRow = self.awaySquadTable.indexPathForSelectedRow {
             let player = self.awaySquadTable.cellForRow(at: selectedAwayRow) as! SquadTableViewCell
@@ -50,7 +51,8 @@ class FixtureDetailViewController: UIViewController {
             let destinationVC = segue.destination as! PlayerViewController
             destinationVC.playerId = playerId
             guard let thisDate = matchModel?.date else { return }
-            destinationVC.season = DateParser.getYearFromString(date: thisDate)
+            guard let year = Int(thisDate.split(separator: "-")[0]) else { return }
+            destinationVC.season = String(year - 1)
         }
     }
 }

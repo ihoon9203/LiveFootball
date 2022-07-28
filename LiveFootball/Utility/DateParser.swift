@@ -15,8 +15,9 @@ class DateParser {
         return dateFormatter.string(from: seasonDate!)
     }
     static func getYearFromString(date: String) -> String {
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        // dateFormatter.dateFormat = "yyyy-MM-dd%"
         guard let year = dateFormatter.date(from: date) else {return "2022"}
         let seasonYear = Calendar.current.date(byAdding: .year, value: -1, to: year)
         return dateFormatter.string(from: seasonYear!)
