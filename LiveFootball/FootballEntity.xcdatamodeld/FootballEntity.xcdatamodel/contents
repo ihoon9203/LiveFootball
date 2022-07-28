@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CountryEntity" representedClassName="CountryEntity" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PlayerList" representedClassName="PlayerList" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="TeamList" representedClassName="TeamList" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
+        <attribute name="logo" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CountryEntity" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="PlayerList" positionX="130.87109375" positionY="-1.1171875" width="128" height="88"/>
+        <element name="TeamList" positionX="314.81640625" positionY="-1.4140625" width="128" height="88"/>
+    </elements>
+</model>
