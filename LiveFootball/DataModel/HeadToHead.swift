@@ -35,6 +35,26 @@ struct FulltimeScore: Codable {
     let home: Int?
     let away: Int?
 }
-struct HeadToHeadModel {
+struct HeadToHeadModelList {
+    let records: [HeadToHeadModel]
     
+    init(data: HeadToHead) {
+        var localRecords: [HeadToHeadModel] = []
+        for record in data.response {
+            localRecords.append(HeadToHeadModel(data: record))
+        }
+        records = localRecords
+    }
+}
+struct HeadToHeadModel {
+    let date: String?
+    let home: TeamHTH
+    let away: TeamHTH
+    let score: FulltimeScore
+    init(data: MatchData) {
+        date = data.fixture.date
+        home = data.teams.home
+        away = data.teams.away
+        score = data.score.fulltime
+    }
 }

@@ -7,13 +7,13 @@
 
 import Foundation
 class HeadToHeadSessionDataParser {
-    func parseRequestToHeadToHead (request: URLRequest, onSuccess: @escaping (HeadToHeadModel)->(), onFailure: @escaping (Error) -> ()) {
+    func parseRequestToHeadToHead (request: URLRequest, onSuccess: @escaping (HeadToHeadModelList)->(), onFailure: @escaping (Error) -> ()) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {
                     let jsonData = try JSONDecoder().decode(HeadToHead.self, from: data)
-                    let matchList = HeadToHeadModel(data: jsonData)
-                    onSuccess(matchList)
+                    let recordList = HeadToHeadModelList(data: jsonData)
+                    onSuccess(recordList)
                 }
             } catch {
                 onFailure(error)

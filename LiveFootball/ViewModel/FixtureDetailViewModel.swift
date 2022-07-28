@@ -11,6 +11,7 @@ class FixtureDetailViewModel {
     let lineupSessionDataParser = LineupSessionDataParser()
     let matchSessionDataParser = MatchSessionDataParser()
     let predictionSessionDataParser = PredictionSessionDataParser()
+    let headToHeadSessionDataParser = HeadToHeadSessionDataParser()
     
     weak var delegate: FixtureDetailCommunicationProtocol?
     func getLineupList(_ fixtureCode: Int) {
@@ -52,6 +53,20 @@ class FixtureDetailViewModel {
             
             predictionSessionDataParser.parseRequestToPrediction(request: request) { predictionModel in
                 self.delegate?.notifyPredicitonDataProvided(predictionModel)
+            } onFailure: { error in
+                print(error)
+            }
+        }
+    }
+    func getHeadToHeadData(homeCode: Int, awayCode: Int) {
+        let headtoheadAPIURL = Constants.baseURL+Constants.hthEndpoint+"?"+Constants.paramHTH+"\(homeCode)-\(awayCode)"+"&"+Constants.paramLast+Constants.matchesToShow
+        if let url = URL(string: headtoheadAPIURL) {
+            var request = URLRequest(url: url)
+            request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
+            request.httpMethod = "GET"
+            
+            headToHeadSessionDataParser.parseRequestToHeadToHead(request: request) { headtoheadModelList in
+                self.delegate?.notifyHTHDataProvided(headtoheadModelList)
             } onFailure: { error in
                 print(error)
             }

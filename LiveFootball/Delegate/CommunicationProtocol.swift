@@ -18,4 +18,5 @@ protocol FixtureDetailCommunicationProtocol: NSObject {
     func notifyLineupDataProvided(_ lineup: LineupModelList)
     func notifyFixtureDataProvided(_ fixture: MatchModel)
     func notifyPredicitonDataProvided(_ prediction: PredictionModel)
+    func notifyHTHDataProvided(_ records: HeadToHeadModelList)
 }

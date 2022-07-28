@@ -13,6 +13,7 @@ class FixtureDetailViewController: UIViewController {
     var lineupList: LineupModelList?
     var matchModel: MatchModel?
     var predictionModel: PredictionModel?
+    var headtoheadModelList: HeadToHeadModelList?
     let fixtureDetailVM = FixtureDetailViewModel()
     
     override func viewDidLoad() {
@@ -37,6 +38,10 @@ class FixtureDetailViewController: UIViewController {
 
 }
 extension FixtureDetailViewController: FixtureDetailCommunicationProtocol {
+    func notifyHTHDataProvided(_ records: HeadToHeadModelList) {
+        headtoheadModelList = records
+    }
+    
     func notifyPredicitonDataProvided(_ prediction: PredictionModel) {
         predictionModel = prediction
     }
