@@ -20,3 +20,7 @@ protocol FixtureDetailCommunicationProtocol: NSObject {
     func notifyPredicitonDataProvided(_ prediction: PredictionModel)
     func notifyHTHDataProvided(_ records: HeadToHeadModelList)
 }
+
+protocol PlayerCommunicationProtocol: NSObject {
+    func notifyPlayerDataProvided(_ player: PlayerInfo)
+}

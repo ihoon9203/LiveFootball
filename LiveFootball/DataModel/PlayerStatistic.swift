@@ -12,7 +12,12 @@ struct PlayerStatistics: Codable {
 }
 struct PlayerInfo: Codable {
     let player: Player
-    let statistics: PlayerStat
+    let statistics: [PlayerStat]
+    
+    init(data: PlayerStatistics) {
+        player = data.response[0].player
+        statistics = data.response[0].statistics
+    }
 }
 struct Player: Codable {
     let id: Int?

@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="1547.8260869565217" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Fixture Detail View Controller-->
         <scene sceneID="3al-Xw-R9Y">
             <objects>
-                <viewController id="zYE-QO-bnW" sceneMemberID="viewController">
+                <viewController id="zYE-QO-bnW" customClass="FixtureDetailViewController" customModule="LiveFootball" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f2-Wr-i7r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,6 +361,21 @@
             </objects>
             <point key="canvasLocation" x="2460.8695652173915" y="83.705357142857139"/>
         </scene>
+        <!--Player View Controller-->
+        <scene sceneID="79V-A2-z6B">
+            <objects>
+                <viewController id="xGo-6P-tYZ" customClass="PlayerViewController" customModule="LiveFootball" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bWO-sx-AGg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5ff-tU-2cf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtk-l5-L6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3551" y="84"/>
+        </scene>
         <!--Item-->
         <scene sceneID="rsC-s6-MVv">
             <objects>
@@ -392,11 +407,47 @@
                     </tabBar>
                     <connections>
                         <segue destination="aeV-zT-VXs" kind="relationship" relationship="viewControllers" id="dt8-ad-XcN"/>
+                        <segue destination="qBC-ro-Vq8" kind="relationship" relationship="viewControllers" id="39i-v4-N2l"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVV-Fi-W8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-254" y="845"/>
+        </scene>
+        <!--League View Controller-->
+        <scene sceneID="AO2-pr-VXc">
+            <objects>
+                <viewController id="VMx-tt-ib1" customClass="LeagueViewController" customModule="LiveFootball" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pdp-Mx-tka">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5YL-z9-J2S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I9G-Zi-ovQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y3J-na-EFv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="844"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="bdZ-6g-gJ6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qBC-ro-Vq8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="GhQ-tC-a7q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ib-uQ-9sJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VMx-tt-ib1" kind="relationship" relationship="rootViewController" id="b9s-Qi-o3B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FqY-0q-y1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="664" y="844"/>
         </scene>
     </scenes>
     <resources>
