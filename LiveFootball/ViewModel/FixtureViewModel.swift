@@ -8,6 +8,9 @@
 import Foundation
 
 class FixtureViewModel {
+    
+    
+    
     let countryParser = CountriesSessionDataParser()
     let leagueParser = LeaguesSessionDataParser()
     let fixtureParser = FixtureSessionDataParser()
@@ -28,8 +31,8 @@ class FixtureViewModel {
 
         }
     }
-    func getLeagueList(code: String, season: Int) {
-        let leagueAPIURL = Constants.baseURL+Constants.leagueEndpoint+"?"+Constants.paramCountryCode+code+"&"+Constants.paramSeason+String(season)
+    func getLeagueList(code: String, season: String) {
+        let leagueAPIURL = Constants.baseURL+Constants.leagueEndpoint+"?"+Constants.paramCountryCode+code+"&"+Constants.paramSeason+season+"&"+"type=league"
         if let url = URL(string: leagueAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
@@ -66,9 +69,9 @@ class FixtureViewModel {
             request.httpMethod = "GET"
         }
     }
-    func getRangedFixtureData(range: Int, leagueCode: Int, season: Int) {
-        let (from, to) = ReturnRangedDate.provideRangedDate(range)
-        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+from+"&"+Constants.paramDateTo+to+"&"+Constants.paramLeagueCode + String(leagueCode)+"&"+Constants.paramSeason+String(season)
+    func getRangedFixtureData(from: Date, range: Int, leagueCode: Int, season: String) {
+        let (from, to) = ReturnRangedDate.provideRangedDate(from: from, range: range)
+        let fixtureAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramDateFrom+from+"&"+Constants.paramDateTo+to+"&"+Constants.paramLeagueCode + String(leagueCode)+"&"+Constants.paramSeason+season
         if let url = URL(string: fixtureAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)

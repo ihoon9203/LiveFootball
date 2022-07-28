@@ -14,10 +14,13 @@ struct Lineup: Codable {
     let team: TeamInfo // from Team.swift
     let formation: String?
     let startXI: [LineupPlayer]
-    let substitute: [LineupPlayer]
+    let substitutes: [LineupPlayer]
     let coach: Coach
 }
 struct LineupPlayer: Codable {
+    let player: LineupPlayerDetail
+}
+struct LineupPlayerDetail: Codable{
     let id: Int?
     let name: String?
     let number: Int?
@@ -30,10 +33,15 @@ struct Coach: Codable {
 }
 
 struct LineupModelList {
-    let home: Lineup
-    let away: Lineup
+    let home: Lineup?
+    let away: Lineup?
     init(_ data: Lineups) {
-        home = data.response[0]
-        away = data.response[1]
+        if !data.response.isEmpty {
+            home = data.response[0]
+            away = data.response[1]
+        } else {
+            home = nil
+            away = nil
+        }
     }
 }

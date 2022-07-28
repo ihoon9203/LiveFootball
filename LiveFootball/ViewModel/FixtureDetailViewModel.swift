@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class FixtureDetailViewModel {
     let lineupSessionDataParser = LineupSessionDataParser()
     let matchSessionDataParser = MatchSessionDataParser()
     let predictionSessionDataParser = PredictionSessionDataParser()
     let headToHeadSessionDataParser = HeadToHeadSessionDataParser()
+    @IBOutlet weak var homeSquadTable: UITableView!
+    @IBOutlet weak var awaySquadTable: UITableView!
     
     weak var delegate: FixtureDetailCommunicationProtocol?
     func getLineupList(_ fixtureCode: Int) {
@@ -31,7 +34,7 @@ class FixtureDetailViewModel {
         }
     }
     func getMatchData(_ fixtureCode: Int) {
-        let matchAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramFixtureID+String(fixtureCode)
+        let matchAPIURL = Constants.baseURL+Constants.fixtureEndpoint+"?"+Constants.paramFixtureID2+String(fixtureCode)
         if let url = URL(string: matchAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
@@ -73,4 +76,3 @@ class FixtureDetailViewModel {
         }
     }
 }
-

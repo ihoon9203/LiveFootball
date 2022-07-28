@@ -13,7 +13,7 @@ struct FixtureAnalysis: Codable {
 struct FixtureInfo: Codable {
     let fixture: FixtureData?
     let league: FixtureLeagueData?
-    let goal: GoalData?
+    let goals: GoalData?
     let teams: TeamsHTH?
 }
 struct FixtureData: Codable {
@@ -67,7 +67,7 @@ struct SimpleFixtureModel {
         season = data.league?.season
         round = data.league?.round
         date = data.fixture?.date
-        goal = data.goal
+        goal = data.goals
         team = data.teams
     }
 }

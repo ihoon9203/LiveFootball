@@ -8,7 +8,7 @@
 import Foundation
 
 struct Prediction: Codable {
-    let response: PredictionInfo
+    let response: [PredictionInfo]
 }
 struct PredictionInfo: Codable {
     let predictions: Predictions
@@ -49,9 +49,9 @@ struct PredictionModel {
     let winner: Winner?
     let percentage: Percentage
     init(data: Prediction) {
-        teams = data.response.teams
-        comparision = data.response.comparison
-        winner = data.response.predictions.winner
-        percentage = data.response.predictions.percent
+        teams = data.response[0].teams
+        comparision = data.response[0].comparison
+        winner = data.response[0].predictions.winner
+        percentage = data.response[0].predictions.percent
     }
 }

@@ -26,8 +26,15 @@ struct LeagueModelList {
         var localLeagues = [LeagueInfo]()
         var allLeagues = data.response
         allLeagues = allLeagues.sorted { $0.league.id < $1.league.id }
-        for i in 0...3 {
-            localLeagues.append(allLeagues[i].league)
+        if (allLeagues.count) > 3 {
+            for i in 0...3 {
+                localLeagues.append(allLeagues[i].league)
+            }
+        }
+        else {
+            for i in 0..<allLeagues.count {
+                localLeagues.append(allLeagues[i].league)
+            }
         }
         leagues = localLeagues
     }

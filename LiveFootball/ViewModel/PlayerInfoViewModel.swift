@@ -10,8 +10,8 @@ import Foundation
 class PlayerInfoViewModel {
     weak var delegate: PlayerCommunicationProtocol?
     let playerSessionDataParser = PlayerSessionDataParser()
-    func getPlayerInfoData(playerCode: Int, seasonCode: Int) {
-        let lineupAPIURL = Constants.baseURL+Constants.playersEndpoint+"?"+Constants.paramPlayerID+String(playerCode)+"&"+Constants.paramSeason+String(seasonCode)
+    func getPlayerInfoData(playerCode: Int, seasonCode: String) {
+        let lineupAPIURL = Constants.baseURL+Constants.playersEndpoint+"?"+Constants.paramPlayerID+String(playerCode)+"&"+Constants.paramSeason+seasonCode
         if let url = URL(string: lineupAPIURL) {
             var request = URLRequest(url: url)
             request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
