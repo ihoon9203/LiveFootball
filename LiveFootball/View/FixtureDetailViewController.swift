@@ -12,6 +12,7 @@ class FixtureDetailViewController: UIViewController {
     var fixtureCode: Int?
     var lineupList: LineupModelList?
     var matchModel: MatchModel?
+    var predictionModel: PredictionModel?
     let fixtureDetailVM = FixtureDetailViewModel()
     
     override func viewDidLoad() {
@@ -36,6 +37,10 @@ class FixtureDetailViewController: UIViewController {
 
 }
 extension FixtureDetailViewController: FixtureDetailCommunicationProtocol {
+    func notifyPredicitonDataProvided(_ prediction: PredictionModel) {
+        predictionModel = prediction
+    }
+    
     func notifyFixtureDataProvided(_ fixture: MatchModel) {
         matchModel = fixture
     }

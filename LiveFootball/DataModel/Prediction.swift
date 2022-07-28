@@ -43,3 +43,15 @@ struct Percentile: Codable {
     let home: String?
     let away: String?
 }
+struct PredictionModel {
+    let teams: Versus?
+    let comparision: Comparison?
+    let winner: Winner?
+    let percentage: Percentage
+    init(data: Prediction) {
+        teams = data.response.teams
+        comparision = data.response.comparison
+        winner = data.response.predictions.winner
+        percentage = data.response.predictions.percent
+    }
+}

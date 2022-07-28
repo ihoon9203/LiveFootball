@@ -10,6 +10,7 @@ import Foundation
 class FixtureDetailViewModel {
     let lineupSessionDataParser = LineupSessionDataParser()
     let matchSessionDataParser = MatchSessionDataParser()
+    let predictionSessionDataParser = PredictionSessionDataParser()
     
     weak var delegate: FixtureDetailCommunicationProtocol?
     func getLineupList(_ fixtureCode: Int) {
@@ -37,6 +38,20 @@ class FixtureDetailViewModel {
             
             matchSessionDataParser.parseRequestToGeneralFixtures(request: request) { matchModel in
                 self.delegate?.notifyFixtureDataProvided(matchModel)
+            } onFailure: { error in
+                print(error)
+            }
+        }
+    }
+    func getPredictionData(_ fixtureCode: Int) {
+        let predictionAPIURL = Constants.baseURL+Constants.predictionEndpoint+"?"+Constants.paramFixtureID+String(fixtureCode)
+        if let url = URL(string: predictionAPIURL) {
+            var request = URLRequest(url: url)
+            request.setValue(Constants.key, forHTTPHeaderField: Constants.apiKey)
+            request.httpMethod = "GET"
+            
+            predictionSessionDataParser.parseRequestToPrediction(request: request) { predictionModel in
+                self.delegate?.notifyPredicitonDataProvided(predictionModel)
             } onFailure: { error in
                 print(error)
             }

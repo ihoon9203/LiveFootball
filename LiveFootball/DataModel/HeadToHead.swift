@@ -35,3 +35,6 @@ struct FulltimeScore: Codable {
     let home: Int?
     let away: Int?
 }
+struct HeadToHeadModel {
+    
+}

@@ -28,6 +28,8 @@
 		7A372B88289160E100044207 /* FixtureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372B87289160E100044207 /* FixtureDetailViewController.swift */; };
 		7A372B8A2891646700044207 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372B892891646700044207 /* Fixture.swift */; };
 		7A372B8C28917C0300044207 /* MatchSessionDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372B8B28917C0300044207 /* MatchSessionDataParser.swift */; };
+		7A372B8E2892147B00044207 /* PredictionSessionDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372B8D2892147B00044207 /* PredictionSessionDataParser.swift */; };
+		7A372B9028921BA800044207 /* HeadToHeadSessionDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372B8F28921BA800044207 /* HeadToHeadSessionDataParser.swift */; };
 		7A79DAD2288F36FA00747D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD1288F36FA00747D6A /* AppDelegate.swift */; };
 		7A79DAD4288F36FA00747D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */; };
 		7A79DAD9288F36FA00747D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DAD7288F36FA00747D6A /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		7A372B87289160E100044207 /* FixtureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureDetailViewController.swift; sourceTree = "<group>"; };
 		7A372B892891646700044207 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		7A372B8B28917C0300044207 /* MatchSessionDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSessionDataParser.swift; sourceTree = "<group>"; };
+		7A372B8D2892147B00044207 /* PredictionSessionDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionSessionDataParser.swift; sourceTree = "<group>"; };
+		7A372B8F28921BA800044207 /* HeadToHeadSessionDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadToHeadSessionDataParser.swift; sourceTree = "<group>"; };
 		7A79DACE288F36FA00747D6A /* LiveFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A79DAD1288F36FA00747D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				7A372B7B28913DF200044207 /* TeamsSessionDataParser.swift */,
 				7A372B812891583600044207 /* LineupSessionDataParser.swift */,
 				7A372B8B28917C0300044207 /* MatchSessionDataParser.swift */,
+				7A372B8D2892147B00044207 /* PredictionSessionDataParser.swift */,
+				7A372B8F28921BA800044207 /* HeadToHeadSessionDataParser.swift */,
 			);
 			path = SessionDataParser;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 				7A79DAEB28904AB500747D6A /* Teams.swift in Sources */,
 				7A372B59289092E400044207 /* HeadToHead.swift in Sources */,
 				7A79DAD2288F36FA00747D6A /* AppDelegate.swift in Sources */,
+				7A372B8E2892147B00044207 /* PredictionSessionDataParser.swift in Sources */,
 				7A372B88289160E100044207 /* FixtureDetailViewController.swift in Sources */,
 				7A79DAED28904CB300747D6A /* Players.swift in Sources */,
 				7A79DAE7289047FC00747D6A /* Countries.swift in Sources */,
@@ -275,6 +282,7 @@
 				7A372B8A2891646700044207 /* Fixture.swift in Sources */,
 				7A372B702890FA8000044207 /* FootballEntity.xcdatamodeld in Sources */,
 				7A372B53289083BB00044207 /* Matches.swift in Sources */,
+				7A372B9028921BA800044207 /* HeadToHeadSessionDataParser.swift in Sources */,
 				7A372B612890AFA800044207 /* FixtureViewController.swift in Sources */,
 				7A372B7A2891359100044207 /* LeaguesSessionDataParser.swift in Sources */,
 				7A79DAD4288F36FA00747D6A /* SceneDelegate.swift in Sources */,
