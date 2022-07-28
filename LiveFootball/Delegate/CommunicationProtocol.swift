@@ -32,4 +32,5 @@ protocol LeagueCommunicationProtocol: NSObject {
 
 protocol TeamCommunicationProtocol: NSObject {
     func notifyTeamStatisticDataProvided(_ teamStat: TeamStatistic)
+    func notifyNextFixtureDataProvided(_ fixture: SimpleFixtureModelList)
 }

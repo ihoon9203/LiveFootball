@@ -27,7 +27,10 @@ class PlayerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func savePlayerToWatchList() {
+        guard let playerInfo = playerInfo else { return }
+        CoreDataManager.sharedManager.savePlayerToWatchList(info: PlayerCoreDataInfo(info: playerInfo.player))
+    }
 }
 extension PlayerViewController: PlayerCommunicationProtocol {
     func notifyPlayerDataProvided(_ player: PlayerInfo) {

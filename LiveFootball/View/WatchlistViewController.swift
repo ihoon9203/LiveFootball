@@ -1,5 +1,5 @@
 //
-//  TeamViewController.swift
+//  WatchlistViewController.swift
 //  LiveFootball
 //
 //  Created by Jeonghoon Oh on 7/28/22.
@@ -7,9 +7,8 @@
 
 import UIKit
 
-class TeamViewController: UIViewController {
-    var teamStatistics: TeamStatistic?
-    var teamFixtureList: SimpleFixtureModelList?
+class WatchlistViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +26,4 @@ class TeamViewController: UIViewController {
     }
     */
 
-}
-
-extension TeamViewController: TeamCommunicationProtocol {
-    func notifyTeamStatisticDataProvided(_ teamStat: TeamStatistic) {
-        teamStatistics = teamStat
-    }
-    
-    func notifyNextFixtureDataProvided(_ fixture: SimpleFixtureModelList) {
-        teamFixtureList = fixture
-    }
 }

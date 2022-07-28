@@ -10,7 +10,7 @@ import Foundation
 struct PlayerStatistics: Codable {
     let response: [PlayerInfo]
 }
-struct PlayerInfo: Codable {
+struct PlayerInfo: Codable{
     let player: Player
     let statistics: [PlayerStat]
     

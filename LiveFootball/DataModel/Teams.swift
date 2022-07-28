@@ -27,12 +27,17 @@ struct TeamInfo: Codable {
 struct Venue: Codable {
     let name: String?
 }
-//struct TeamModel {
-//    init(data: Team) {
-//        var localTeams = [TeamModel]()
-//        for team in data.response {
-//            let team = TeamModel(team)
-//        }
-//        teams = localTeams
-//    }
-//}
+struct TeamCoreDataInfo {
+    let id: Int?
+    let name: String?
+    var logo: Data = Data()
+    init(info: TeamInfo) {
+        id = info.id
+        name = info.name
+        if let imageURL = URL(string: info.logo ?? "") {
+            if let imageData = try? Data(contentsOf: imageURL){
+                logo = imageData
+            }
+        }
+    }
+}

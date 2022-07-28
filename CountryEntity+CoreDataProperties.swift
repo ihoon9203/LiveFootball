@@ -2,7 +2,7 @@
 //  CountryEntity+CoreDataProperties.swift
 //  LiveFootball
 //
-//  Created by Jeonghoon Oh on 7/27/22.
+//  Created by Jeonghoon Oh on 7/28/22.
 //
 //
 
