@@ -47,3 +47,6 @@ struct PlayerCoreDataInfo {
         }
     }
 }
+struct PlayerMetaData {
+    
+}

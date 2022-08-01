@@ -51,6 +51,7 @@
 		7A372BC628928F9100044207 /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC528928F9100044207 /* DateParser.swift */; };
 		7A372BC82892B18F00044207 /* SquadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC72892B18F00044207 /* SquadTableViewCell.swift */; };
 		7A372BCA2892D94E00044207 /* StandingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A372BC92892D94E00044207 /* StandingTableViewCell.swift */; };
+		7A79C33D28988FF200CF7DC1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7A79C33C28988FF200CF7DC1 /* README.md */; };
 		7A79DAD2288F36FA00747D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD1288F36FA00747D6A /* AppDelegate.swift */; };
 		7A79DAD4288F36FA00747D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */; };
 		7A79DAD9288F36FA00747D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A79DAD7288F36FA00747D6A /* Main.storyboard */; };
@@ -107,6 +108,7 @@
 		7A372BC528928F9100044207 /* DateParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
 		7A372BC72892B18F00044207 /* SquadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadTableViewCell.swift; sourceTree = "<group>"; };
 		7A372BC92892D94E00044207 /* StandingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingTableViewCell.swift; sourceTree = "<group>"; };
+		7A79C33C28988FF200CF7DC1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7A79DACE288F36FA00747D6A /* LiveFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A79DAD1288F36FA00747D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A79DAD3288F36FA00747D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		7A79DAC5288F36FA00747D6A = {
 			isa = PBXGroup;
 			children = (
+				7A79C33C28988FF200CF7DC1 /* README.md */,
 				7A372BBF289276E900044207 /* TeamList+CoreDataClass.swift */,
 				7A372BC0289276E900044207 /* TeamList+CoreDataProperties.swift */,
 				7A372BBB289276DB00044207 /* PlayerList+CoreDataClass.swift */,
@@ -316,6 +319,7 @@
 			files = (
 				7A79DADE288F36FC00747D6A /* LaunchScreen.storyboard in Resources */,
 				7A79DADB288F36FC00747D6A /* Assets.xcassets in Resources */,
+				7A79C33D28988FF200CF7DC1 /* README.md in Resources */,
 				7A79DAD9288F36FA00747D6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
