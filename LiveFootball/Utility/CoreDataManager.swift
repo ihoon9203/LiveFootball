@@ -25,7 +25,9 @@ class CoreDataManager {
             countryContextObject.name = country.name
             countryContextObject.code = country.code
         }
-        appDelegate.saveContext()
+        DispatchQueue.main.async {
+            self.appDelegate.saveContext()
+        }
     }
     func readCountry(code: String) -> Country? {
         guard NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) != nil else { return nil }
@@ -48,7 +50,9 @@ class CoreDataManager {
         playerObject.id = info.id as? NSDecimalNumber
         playerObject.name = info.name
         playerObject.photo = info.photo
-        appDelegate.saveContext()
+        DispatchQueue.main.async {
+            self.appDelegate.saveContext()
+        }
     }
     func saveTeamToWatchList(info: TeamCoreDataInfo) {
         guard let teamList = NSEntityDescription.entity(forEntityName: "TeamList", in: managedContext) else { return }// creating reference from data model
@@ -56,7 +60,9 @@ class CoreDataManager {
         teamObject.id = info.id as? NSDecimalNumber
         teamObject.name = info.name
         teamObject.logo = info.logo
-        appDelegate.saveContext()
+        DispatchQueue.main.async {
+            self.appDelegate.saveContext()
+        }
     }
     func retrievePlayersAndTeamsFromWatchList() -> ([PlayerList]?,[TeamList]?) {
         var watchedPlayers: [PlayerList] = []

@@ -114,16 +114,18 @@ extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, Fix
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleFixture") as! SimpleFixtureTableViewCell
         guard let fixture = simpleFixtures?.fixtures[indexPath.row] else { return SimpleFixtureTableViewCell() }
-        if let homeLogoURL = URL(string: fixture.team?.home.logo ?? ""){
-            if let homeLogoImageData = try? Data(contentsOf: homeLogoURL){
-                cell.homeLogo.image = UIImage(data: homeLogoImageData)
-            }
-        }
-        if let awayLogoURL = URL(string: fixture.team?.away.logo ?? ""){
-            if let awayLogoImageData = try? Data(contentsOf: awayLogoURL){
-                cell.awayLogo.image = UIImage(data: awayLogoImageData)
-            }
-        }
+        cell.homeLogo.image = UIImage(data: fixture.homeLogo)
+        cell.awayLogo.image = UIImage(data: fixture.awayLogo)
+//        if let homeLogoURL = URL(string: fixture.team?.home.logo ?? ""){
+//            if let homeLogoImageData = try? Data(contentsOf: homeLogoURL){
+//                cell.homeLogo.image = UIImage(data: homeLogoImageData)
+//            }
+//        }
+//        if let awayLogoURL = URL(string: fixture.team?.away.logo ?? ""){
+//            if let awayLogoImageData = try? Data(contentsOf: awayLogoURL){
+//                cell.awayLogo.image = UIImage(data: awayLogoImageData)
+//            }
+//        }
         cell.homeName.text = fixture.team?.home.name
         cell.awayName.text = fixture.team?.away.name
         if fixture.goal?.home == nil {

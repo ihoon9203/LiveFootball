@@ -51,8 +51,9 @@ struct SimpleFixtureModel {
     let fixtureId: Int?
     let name: String?
     let country: String?
-    let logo: String?
-    let flag: String?
+    var homeLogo: Data = Data()
+    var awayLogo: Data = Data()
+    var flag: Data = Data()
     let season: Int?
     let round: String?
     let date: String?
@@ -62,12 +63,25 @@ struct SimpleFixtureModel {
         fixtureId = data.fixture?.id
         name = data.league?.name
         country = data.league?.country
-        logo = data.league?.logo
-        flag = data.league?.flag
         season = data.league?.season
         round = data.league?.round
         date = data.fixture?.date
         goal = data.goals
         team = data.teams
+        if let homeLogoURL = URL(string: data.teams?.home.logo ?? ""){
+            if let homeLogoImageData = try? Data(contentsOf: homeLogoURL){
+                homeLogo = homeLogoImageData
+            }
+        }
+        if let awayLogoURL = URL(string: data.teams?.away.logo ?? ""){
+            if let awayLogoImageData = try? Data(contentsOf: awayLogoURL){
+                awayLogo = awayLogoImageData
+            }
+        }
+        if let flagURL = URL(string: data.league?.flag ?? ""){
+            if let flagData = try? Data(contentsOf: flagURL){
+                flag = flagData
+            }
+        }
     }
 }
