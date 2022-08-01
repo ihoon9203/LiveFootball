@@ -136,6 +136,7 @@ extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, Fix
         } else {
             cell.awayScore.text = String((fixture.goal?.away)!)
         }
+        cell.timeLabel.text = fixture.date?.split(separator: "T").map { String($0) }.first
         cell.id = fixture.fixtureId ?? 0
         return cell
     }

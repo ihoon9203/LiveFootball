@@ -15,6 +15,7 @@ class SimpleFixtureTableViewCell: UITableViewCell {
     @IBOutlet weak var awayScore: UILabel!
     @IBOutlet weak var homeName: UILabel!
     @IBOutlet weak var awayName: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     var id: Int = 0
     
     override func awakeFromNib() {

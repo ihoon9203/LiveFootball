@@ -39,14 +39,14 @@ class LeagueViewController: UIViewController {
     
 
 }
-extension LeagueViewController: LeagueCommunicationProtocol, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
+extension LeagueViewController: LeagueCommunicationProtocol {// , UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
     
     func notifySpecificTeamSearched(_ team: TeamInfo) {
         self.team = team

@@ -20,6 +20,7 @@ class PlayerViewController: UIViewController {
     var season: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        playerInfoViewModel.delegate = self
         guard let playerId = playerId else {
             return
         }
