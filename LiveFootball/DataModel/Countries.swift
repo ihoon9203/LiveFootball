@@ -14,11 +14,9 @@ struct Country: Codable {
     let name: String?
     let code: String?
     let flag: String?
-}
-
-struct CountryModelList {
-    let countries: [Country]
-    init(data: Countries) {
-        countries = data.response
+    init(entity: CountryEntity) {
+        name = entity.name
+        code = entity.code
+        flag = entity.flag
     }
 }

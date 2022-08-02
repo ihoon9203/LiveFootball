@@ -16,10 +16,10 @@ class CoreDataManager {
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
     }
-    func enlistCountries(countryList: CountryModelList) {
-        if getAllCountries()?.count == 0 {
+    func enlistCountries(countryList: [Country]) {
+        if getAllCountries().count == 0 {
             guard let countryEntity = NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) else { return }// creating reference from data model
-            for country in countryList.countries {
+            for country in countryList {
                 let countryContextObject = NSManagedObject(entity: countryEntity, insertInto: managedContext) as! CountryEntity
                 countryContextObject.flag = country.flag
                 countryContextObject.name = country.name
@@ -30,32 +30,34 @@ class CoreDataManager {
             }
         }
     }
-    func getAllCountries() -> [CountryEntity]? {
-        var nations: [CountryEntity]
+    func getAllCountries() -> [Country] {
+        var nations: [Country] = []
         let fetchNationsRequest = NSFetchRequest<CountryEntity>(entityName: "CountryEntity")
         do {
-            nations = try managedContext.fetch(fetchNationsRequest) // as [CountryEntity]
-            return nations
+            let nationEntities = try managedContext.fetch(fetchNationsRequest) // as [CountryEntity]
+            for nation in nationEntities {
+                nations.append(Country(entity: nation))
+            }
         } catch {
             print(error)
-            return nil
         }
+        return nations
     }
-    func readCountry(code: String) -> Country? {
-        guard NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) != nil else { return nil }
-        let fetchRequest = NSFetchRequest<CountryEntity>(entityName: "CountryEntity")
-        fetchRequest.predicate = NSPredicate(format: "code = %@", code)
-        
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            let countryEntity = result.first!
-            let country = Country(name: countryEntity.name, code: countryEntity.code, flag: countryEntity.flag)
-            return country
-        } catch {
-            print("no such country exist")
-            return nil
-        }
-    }
+//    func readCountry(code: String) -> Country? {
+//        guard NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) != nil else { return nil }
+//        let fetchRequest = NSFetchRequest<CountryEntity>(entityName: "CountryEntity")
+//        fetchRequest.predicate = NSPredicate(format: "code = %@", code)
+//
+//        do {
+//            let result = try managedContext.fetch(fetchRequest)
+//            let countryEntity = result.first!
+//            let country = Country(name: countryEntity.name, code: countryEntity.code, flag: countryEntity.flag)
+//            return country
+//        } catch {
+//            print("no such country exist")
+//            return nil
+//        }
+//    }
     func savePlayerToWatchList(info: PlayerInfo) {
         guard let playerEntity = NSEntityDescription.entity(forEntityName: "PlayerEntity", in: managedContext) else { return }// creating reference from data model
         let playerObject = NSManagedObject(entity: playerEntity, insertInto: managedContext) as! PlayerEntity

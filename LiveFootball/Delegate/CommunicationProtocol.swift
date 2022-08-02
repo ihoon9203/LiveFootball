@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FixtureCommunicationProtocol: NSObject {
-    func notifyCountryDataProvided(_ countries: CountryModelList)
+    func notifyCountryDataProvided(_ countries: [Country])
     func notifyLeagueDataProvided(_ leagues: LeagueModelList)
     func notifySimpleFixturesProvided(_ fixtures: SimpleFixtureModelList)
 }

@@ -13,7 +13,7 @@ class LeagueViewController: UIViewController {
     var leagueModelList: LeagueModelList?
     var standing: [TeamWithStandingModel]?
     var team: TeamInfo?
-    var countries: [CountryEntity]?
+    var countries: [Country]?
     var countriesForDropDown = [UIAction]()
     var leaguesForDropDown = [UIAction]()
     var selectedCountryCode: String?

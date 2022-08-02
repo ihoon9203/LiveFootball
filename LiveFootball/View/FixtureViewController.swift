@@ -9,17 +9,15 @@ import UIKit
 
 class FixtureViewController: UIViewController {
     
-    @IBOutlet weak var league1: UIButton!
-    @IBOutlet weak var league2: UIButton!
-    @IBOutlet weak var league3: UIButton!
-    @IBOutlet weak var league4: UIButton!
-    
-    
-    @IBOutlet weak var countryCodeField: UITextField!
+    @IBOutlet weak var leagueBtn: UIButton!
+    @IBOutlet weak var countryBtn: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var countriesForDropDown = [UIAction]()
+    var leaguesForDropDown = [UIAction]()
+    
     @IBOutlet weak var fixtureTable: UITableView!
-    var countryList: CountryModelList?
+    var countryList: [Country] = []
     var leagueList: LeagueModelList?
     var simpleFixtures: SimpleFixtureModelList?
     let fixtureViewModel = FixtureViewModel()
@@ -28,9 +26,50 @@ class FixtureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fixtureViewModel.delegate = self
-        fixtureViewModel.getCountryList()
-        leagueButtons = [league1, league2, league3, league4]
+        countryList = CoreDataManager.sharedManager.getAllCountries()
+        if countryList.count == 0 {
+            fixtureViewModel.getCountryList()
+        } else {
+            setCountryList(countries: countryList)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func setCountryList(countries: [Country]) {
+        self.countryList = countries.sorted(by: { country1, country2 in
+            country1.name! < country2.name!
+        })
+        self.countryList.map({ country in
+            self.countriesForDropDown.append(UIAction(title: country.name ?? "",
+                                                      handler: { [weak self]_ in
+                self?.countryBtn.setTitle(country.name ?? "GB" , for: .normal)
+                self?.leagueBtn.setTitle("League", for: .normal)
+                self?.fixtureViewModel.getLeagueList(code: country.code ?? "GB", season: "2021") }
+            ))
+        })
+
+        countryBtn.menu = UIMenu(title: "Country",
+                                  identifier: nil,
+                                  options: .displayInline,
+                                  children: countriesForDropDown )
+    }
+    func setLeagueList() {
+        self.leaguesForDropDown = []
+        guard let leagues = leagueList?.leagues else { return }
+        for league in leagues {
+            self.leaguesForDropDown.append(UIAction(title: league.name ?? "",
+                                            handler: { [weak self] _ in
+                self?.leagueBtn.setTitle(league.name ?? "" , for: .normal)
+                
+                self?.fixtureViewModel.getRangedFixtureData(from: self?.datePicker.date ?? Date(), range: 7, leagueCode: league.id , season: DateParser.getYearFromDate(date: self?.datePicker.date ?? Date()))
+            }))
+        }
+        DispatchQueue.main.async {
+            self.leagueBtn.menu = UIMenu(title: "League",
+                    identifier: nil,
+                    options: .displayInline,
+                    children: self.leaguesForDropDown )
+        }
     }
     @IBAction func league1Selected(_ sender: Any) {
         fixtureViewModel.getRangedFixtureData(from: datePicker.date, range: 7, leagueCode: leagueList?.leagues?[0].id ?? 39, season: DateParser.getYearFromDate(date: datePicker.date))
@@ -48,7 +87,6 @@ class FixtureViewController: UIViewController {
     
     @IBAction func searchLeagues(_ sender: Any) {
         let season = DateParser.getYearFromDate(date: datePicker.date)
-        fixtureViewModel.getLeagueList(code: countryCodeField.text ?? "GB", season: season)
     }
     /*
     // MARK: - Navigation
@@ -79,26 +117,12 @@ extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, Fix
     
     func notifyLeagueDataProvided(_ leagues: LeagueModelList) {
         leagueList = leagues
-        if (leagueList?.leagues?.count)! > 3 {
-            for i in 0...3 {
-                guard let name = leagueList?.leagues?[i].name else { return }
-                DispatchQueue.main.async {
-                    self.leagueButtons[i].titleLabel?.text = name
-                }
-            }
-        } else {
-            for i in 0..<(leagueList?.leagues?.count)! {
-                guard let name = leagueList?.leagues?[i].name else { return }
-                DispatchQueue.main.async {
-                    self.leagueButtons[i].titleLabel?.text = name
-                }
-            }
-        }
+        setLeagueList()
     }
     
-    func notifyCountryDataProvided(_ countries: CountryModelList) {
+    func notifyCountryDataProvided(_ countries: [Country]) {
         CoreDataManager.sharedManager.enlistCountries(countryList: countries)
-        countryList = countries
+        setCountryList(countries: countries)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SimpleFixtureTableViewCell
@@ -116,16 +140,6 @@ extension FixtureViewController: UITableViewDelegate, UITableViewDataSource, Fix
         guard let fixture = simpleFixtures?.fixtures[indexPath.row] else { return SimpleFixtureTableViewCell() }
         cell.homeLogo.image = UIImage(data: fixture.homeLogo)
         cell.awayLogo.image = UIImage(data: fixture.awayLogo)
-//        if let homeLogoURL = URL(string: fixture.team?.home.logo ?? ""){
-//            if let homeLogoImageData = try? Data(contentsOf: homeLogoURL){
-//                cell.homeLogo.image = UIImage(data: homeLogoImageData)
-//            }
-//        }
-//        if let awayLogoURL = URL(string: fixture.team?.away.logo ?? ""){
-//            if let awayLogoImageData = try? Data(contentsOf: awayLogoURL){
-//                cell.awayLogo.image = UIImage(data: awayLogoImageData)
-//            }
-//        }
         cell.homeName.text = fixture.team?.home.name
         cell.awayName.text = fixture.team?.away.name
         if fixture.goal?.home == nil {

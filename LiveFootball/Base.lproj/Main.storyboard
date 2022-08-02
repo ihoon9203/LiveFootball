@@ -35,7 +35,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="I9Y-99-ebj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZw-vr-5Q0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZw-vr-5Q0">
                                                     <rect key="frame" x="168" y="38.5" width="78" height="59"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -133,122 +133,64 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jlP-eZ-mcH"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIu-Gw-U6L">
-                                <rect key="frame" x="215" y="143" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="NH3-ms-jCR"/>
-                                    <constraint firstAttribute="height" constant="28" id="fsI-cL-1Ju"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league2Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lAG-4H-R13"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRz-Ly-pRG">
-                                <rect key="frame" x="20" y="143" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="7l1-NE-1MO"/>
-                                    <constraint firstAttribute="height" constant="28" id="WC3-UG-9kJ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league1Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ocm-99-Wnp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZk-7Q-WNg">
-                                <rect key="frame" x="20" y="185" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="2zc-Zj-oaB"/>
-                                    <constraint firstAttribute="height" constant="28" id="Cn0-OY-JsQ"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league3Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVd-Mc-uQb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roo-gJ-oMO">
-                                <rect key="frame" x="215" y="185" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="5nL-x1-1k7"/>
-                                    <constraint firstAttribute="height" constant="28" id="rWF-Ue-Q6i"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league4Selected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vfe-N2-XbJ"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="A9t-yy-lDu">
                                 <rect key="frame" x="272" y="257" width="122" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="xz3-Rm-SDa"/>
                                 </constraints>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jtd-iM-Og6">
-                                <rect key="frame" x="20" y="257" width="90" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UM-C4-hbC">
+                                <rect key="frame" x="20" y="88" width="163" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="Qc7-gO-AdI"/>
+                                    <constraint firstAttribute="height" constant="30" id="5Qe-4y-wW7"/>
+                                    <constraint firstAttribute="width" constant="163" id="scR-zM-aTt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtg-Mq-F3I">
-                                <rect key="frame" x="167" y="259" width="80" height="31"/>
+                                <menu key="menu" id="HAT-Wg-gXg">
+                                    <children>
+                                        <command title="Item 1" id="Awf-Fi-PHv"/>
+                                        <command title="Item 2" id="g4d-uq-67H"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Country"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldA-36-bAi">
+                                <rect key="frame" x="231" y="88" width="163" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="doT-rx-2hF"/>
+                                    <constraint firstAttribute="width" constant="163" id="NCn-eF-M91"/>
+                                    <constraint firstAttribute="height" constant="30" id="wme-wJ-gO4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
-                                <connections>
-                                    <action selector="searchLeagues:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffp-jd-vSp"/>
-                                </connections>
+                                <menu key="menu" id="Udi-4G-VcO">
+                                    <children>
+                                        <command title="Item 1" id="wy3-rI-pMo"/>
+                                        <command title="Item 2" id="EoL-bd-can"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="League"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Roo-gJ-oMO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="0rw-Kz-GYJ"/>
+                            <constraint firstItem="ldA-36-bAi" firstAttribute="leading" secondItem="1UM-C4-hbC" secondAttribute="trailing" constant="48" id="09B-Cn-p4d"/>
                             <constraint firstItem="A9t-yy-lDu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-175.5" id="23w-QC-H9A"/>
-                            <constraint firstItem="vZk-7Q-WNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-97.5" id="36H-Br-a1h"/>
-                            <constraint firstItem="Roo-gJ-oMO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="3Cc-2r-aYh"/>
-                            <constraint firstItem="jIu-Gw-U6L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-291" id="55c-rw-bWz"/>
-                            <constraint firstItem="Wtg-Mq-F3I" firstAttribute="centerX" secondItem="RO5-oT-D5E" secondAttribute="centerX" id="6Or-Ql-VsD"/>
-                            <constraint firstItem="bRz-Ly-pRG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-291" id="9cj-ec-IiP"/>
                             <constraint firstItem="RO5-oT-D5E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Eu4-6I-UIq"/>
-                            <constraint firstItem="vZk-7Q-WNg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-249" id="FEo-NE-R00"/>
-                            <constraint firstItem="Wtg-Mq-F3I" firstAttribute="top" secondItem="A9t-yy-lDu" secondAttribute="top" constant="2" id="JkZ-Rv-tsw"/>
-                            <constraint firstItem="bRz-Ly-pRG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-97.5" id="Ljx-ZX-LXu"/>
                             <constraint firstItem="RO5-oT-D5E" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="216" id="M13-PZ-nRr"/>
-                            <constraint firstItem="jIu-Gw-U6L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="O9i-Hm-lhq"/>
                             <constraint firstItem="A9t-yy-lDu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="126" id="ODy-bI-xCA"/>
-                            <constraint firstItem="vZk-7Q-WNg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-249" id="OhJ-E9-zFL"/>
                             <constraint firstItem="A9t-yy-lDu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="126" id="PY2-Dc-SmO"/>
-                            <constraint firstItem="Roo-gJ-oMO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-249" id="RGr-yD-evL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RO5-oT-D5E" secondAttribute="bottom" constant="34" id="S4Q-Lj-q0r"/>
-                            <constraint firstItem="jIu-Gw-U6L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="97.5" id="TXE-DT-9iW"/>
-                            <constraint firstItem="bRz-Ly-pRG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-97.5" id="ZjA-Nh-NPt"/>
-                            <constraint firstItem="Roo-gJ-oMO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-249" id="bp3-4j-z4S"/>
-                            <constraint firstItem="vZk-7Q-WNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-97.5" id="m4R-py-gfS"/>
-                            <constraint firstItem="bRz-Ly-pRG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-291" id="nMf-RR-Eej"/>
-                            <constraint firstItem="Jtd-iM-Og6" firstAttribute="leading" secondItem="vZk-7Q-WNg" secondAttribute="leading" id="rqD-6E-0xL"/>
-                            <constraint firstItem="jIu-Gw-U6L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-291" id="rxG-v2-Hv7"/>
-                            <constraint firstItem="Jtd-iM-Og6" firstAttribute="top" secondItem="A9t-yy-lDu" secondAttribute="top" id="vjH-3x-JRX"/>
+                            <constraint firstItem="1UM-C4-hbC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dA8-7Z-XEX"/>
+                            <constraint firstItem="1UM-C4-hbC" firstAttribute="baseline" secondItem="ldA-36-bAi" secondAttribute="baseline" id="ebf-gw-gOf"/>
+                            <constraint firstItem="1UM-C4-hbC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pxX-TB-f23"/>
                             <constraint firstItem="RO5-oT-D5E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wp3-TQ-RXD"/>
                             <constraint firstItem="A9t-yy-lDu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-175.5" id="yqT-jN-Vjd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A9j-ba-UIO"/>
                     <connections>
-                        <outlet property="countryCodeField" destination="Jtd-iM-Og6" id="lba-vf-J8B"/>
+                        <outlet property="countryBtn" destination="1UM-C4-hbC" id="X6g-1K-qR5"/>
                         <outlet property="datePicker" destination="A9t-yy-lDu" id="tWq-ZL-wOL"/>
                         <outlet property="fixtureTable" destination="RO5-oT-D5E" id="H3d-UP-2Xo"/>
-                        <outlet property="league1" destination="bRz-Ly-pRG" id="2bA-5w-Kc9"/>
-                        <outlet property="league2" destination="jIu-Gw-U6L" id="sHX-WC-zYt"/>
-                        <outlet property="league3" destination="vZk-7Q-WNg" id="weV-cV-xPM"/>
-                        <outlet property="league4" destination="Roo-gJ-oMO" id="Udk-gw-vu3"/>
+                        <outlet property="leagueBtn" destination="ldA-36-bAi" id="ePa-cw-59A"/>
                         <segue destination="zYE-QO-bnW" kind="show" identifier="viewFixtureData" id="72H-bf-0ll"/>
                     </connections>
                 </viewController>

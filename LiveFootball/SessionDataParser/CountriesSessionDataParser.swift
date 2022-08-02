@@ -9,13 +9,12 @@ import Foundation
 
 class CountriesSessionDataParser {
     
-    func parseRequestToCountries(request: URLRequest, onSuccess: @escaping (CountryModelList)->(), onFailure: @escaping (Error) -> ()) {
+    func parseRequestToCountries(request: URLRequest, onSuccess: @escaping ([Country])->(), onFailure: @escaping (Error) -> ()) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 if let data = data {
-                    let jsonData = try JSONDecoder().decode(Countries.self, from: data)
-                    let countryList = CountryModelList(data: jsonData)
-                    onSuccess(countryList)
+                    let countryList = try JSONDecoder().decode(Countries.self, from: data)
+                    onSuccess(countryList.response)
                 }
             } catch {
                 print("1")
