@@ -2,24 +2,22 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CountryEntity" representedClassName="CountryEntity" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String"/>
-        <attribute name="data" optional="YES" attributeType="Transformable"/>
         <attribute name="flag" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="PlayerList" representedClassName="PlayerList" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Transformable"/>
+    <entity name="PlayerEntity" representedClassName="PlayerEntity" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Transformable" customClassName="CDPlayerData"/>
         <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <relationship name="contractedWith" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TeamEntity" inverseName="hasPlayer" inverseEntity="TeamEntity"/>
     </entity>
-    <entity name="TeamList" representedClassName="TeamList" syncable="YES">
+    <entity name="TeamEntity" representedClassName="TeamEntity" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Transformable" customClassName="CDTeamData"/>
         <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
-        <attribute name="logo" optional="YES" attributeType="Binary"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="hasPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerEntity" inverseName="contractedWith" inverseEntity="PlayerEntity"/>
     </entity>
     <elements>
-        <element name="CountryEntity" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="PlayerList" positionX="130.87109375" positionY="-1.1171875" width="128" height="103"/>
-        <element name="TeamList" positionX="314.81640625" positionY="-1.4140625" width="128" height="88"/>
+        <element name="CountryEntity" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="PlayerEntity" positionX="130.87109375" positionY="-1.1171875" width="128" height="74"/>
+        <element name="TeamEntity" positionX="314.81640625" positionY="-1.4140625" width="128" height="74"/>
     </elements>
 </model>

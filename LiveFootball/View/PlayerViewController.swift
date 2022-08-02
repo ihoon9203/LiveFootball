@@ -44,7 +44,7 @@ class PlayerViewController: UIViewController {
     */
     func savePlayerToWatchList() {
         guard let playerInfo = playerInfo else { return }
-        CoreDataManager.sharedManager.savePlayerToWatchList(info: PlayerCoreDataInfo(info: playerInfo.player))
+        CoreDataManager.sharedManager.savePlayerToWatchList(info: playerInfo)
     }
     @IBAction func addPlayerToWatchlist(_ sender: Any) {
         savePlayerToWatchList()

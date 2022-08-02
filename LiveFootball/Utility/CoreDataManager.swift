@@ -34,7 +34,7 @@ class CoreDataManager {
         var nations: [CountryEntity]
         let fetchNationsRequest = NSFetchRequest<CountryEntity>(entityName: "CountryEntity")
         do {
-            nations = try managedContext.fetch(fetchNationsRequest) as [CountryEntity]
+            nations = try managedContext.fetch(fetchNationsRequest) // as [CountryEntity]
             return nations
         } catch {
             print(error)
@@ -56,34 +56,32 @@ class CoreDataManager {
             return nil
         }
     }
-    func savePlayerToWatchList(info: PlayerCoreDataInfo) {
-        guard let playerList = NSEntityDescription.entity(forEntityName: "PlayerList", in: managedContext) else { return }// creating reference from data model
-        let playerObject = NSManagedObject(entity: playerList, insertInto: managedContext) as! PlayerList
-        playerObject.id = info.id as? NSDecimalNumber
-        playerObject.name = info.name
-        playerObject.photo = info.photo
+    func savePlayerToWatchList(info: PlayerInfo) {
+        guard let playerEntity = NSEntityDescription.entity(forEntityName: "PlayerEntity", in: managedContext) else { return }// creating reference from data model
+        let playerObject = NSManagedObject(entity: playerEntity, insertInto: managedContext) as! PlayerEntity
+        playerObject.id = info.player.id as? NSDecimalNumber
+        playerObject.data = CDPlayerData(info: info)
         DispatchQueue.main.async {
             self.appDelegate.saveContext()
         }
     }
-    func saveTeamToWatchList(info: TeamCoreDataInfo) {
-        guard let teamList = NSEntityDescription.entity(forEntityName: "TeamList", in: managedContext) else { return }// creating reference from data model
-        let teamObject = NSManagedObject(entity: teamList, insertInto: managedContext) as! TeamList
-        teamObject.id = info.id as? NSDecimalNumber
-        teamObject.name = info.name
-        teamObject.logo = info.logo
+    func saveTeamToWatchList(team: Team, standing: TeamWithStandingModel) {
+        guard let teamEntity = NSEntityDescription.entity(forEntityName: "TeamEntity", in: managedContext) else { return }// creating reference from data model
+        let teamObject = NSManagedObject(entity: teamEntity, insertInto: managedContext) as! TeamEntity
+        teamObject.id = team.team.id as? NSDecimalNumber
+        teamObject.data = CDTeamData(team: team, standing: standing)
         DispatchQueue.main.async {
             self.appDelegate.saveContext()
         }
     }
-    func retrievePlayersAndTeamsFromWatchList() -> ([PlayerList]?,[TeamList]?) {
-        let watchedPlayers: [PlayerList]?
-        let watchedTeams: [TeamList]?
-        let fetchTeamRequest = NSFetchRequest<TeamList>(entityName: "TeamList")
-        let fetchPlayerRequest = NSFetchRequest<PlayerList>(entityName: "PlayerList")
+    func retrievePlayersAndTeamsFromWatchList() -> ([PlayerEntity]?,[TeamEntity]?) {
+        let watchedPlayers: [PlayerEntity]?
+        let watchedTeams: [TeamEntity]?
+        let fetchTeamRequest = NSFetchRequest<TeamEntity>(entityName: "TeamEntity")
+        let fetchPlayerRequest = NSFetchRequest<PlayerEntity>(entityName: "PlayerEntity")
         do {
-            watchedTeams = try managedContext.fetch(fetchTeamRequest) as [TeamList]
-            watchedPlayers = try managedContext.fetch(fetchPlayerRequest) as [PlayerList]
+            watchedTeams = try managedContext.fetch(fetchTeamRequest) as [TeamEntity]
+            watchedPlayers = try managedContext.fetch(fetchPlayerRequest) as [PlayerEntity]
             return (watchedPlayers, watchedTeams)
         } catch {
             print(error)
