@@ -17,7 +17,6 @@ class StandingsSessionDataParser {
                     onSuccess(teamList)
                 }
             } catch {
-                print("1")
                 onFailure(error)
             }
         }

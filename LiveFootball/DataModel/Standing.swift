@@ -39,13 +39,14 @@ struct Goals: Codable {
 }
 
 struct StandingModelList {
-    var teams: [TeamWithStandingModel]?
+    var teams: [TeamWithStandingModel] = []
     init(_ data: Standing) {
         var localTeams = [TeamWithStandingModel]()
         let allStanding = data.response[0].league.standings[0]
         
         for item in allStanding {
             let team = TeamWithStandingModel(item)
+            localTeams.append(team)
         }
         teams = localTeams
     }
@@ -71,10 +72,14 @@ struct TeamWithStandingModel {
 struct TeamModel {
     let id: Int?
     let name: String?
-    let logo: String?
+    var logo: Data = Data()
     init(_ data: TeamInfo) {
         id = data.id
         name = data.name
-        logo = data.logo
+        if let imageURL = URL(string: data.logo ?? "") {
+            if let imageData = try? Data(contentsOf: imageURL){
+                logo = imageData
+            }
+        }
     }
 }
