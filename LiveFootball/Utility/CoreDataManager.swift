@@ -16,17 +16,29 @@ class CoreDataManager {
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
     }
-    
     func enlistCountries(countryList: CountryModelList) {
-        guard let countryEntity = NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) else { return }// creating reference from data model
-        for country in countryList.countries {
-            let countryContextObject = NSManagedObject(entity: countryEntity, insertInto: managedContext) as! CountryEntity
-            countryContextObject.flag = country.flag
-            countryContextObject.name = country.name
-            countryContextObject.code = country.code
+        if getAllCountries()?.count == 0 {
+            guard let countryEntity = NSEntityDescription.entity(forEntityName: "CountryEntity", in: managedContext) else { return }// creating reference from data model
+            for country in countryList.countries {
+                let countryContextObject = NSManagedObject(entity: countryEntity, insertInto: managedContext) as! CountryEntity
+                countryContextObject.flag = country.flag
+                countryContextObject.name = country.name
+                countryContextObject.code = country.code
+            }
+            DispatchQueue.main.async {
+                self.appDelegate.saveContext()
+            }
         }
-        DispatchQueue.main.async {
-            self.appDelegate.saveContext()
+    }
+    func getAllCountries() -> [CountryEntity]? {
+        var nations: [CountryEntity]
+        let fetchNationsRequest = NSFetchRequest<CountryEntity>(entityName: "CountryEntity")
+        do {
+            nations = try managedContext.fetch(fetchNationsRequest) as [CountryEntity]
+            return nations
+        } catch {
+            print(error)
+            return nil
         }
     }
     func readCountry(code: String) -> Country? {
@@ -65,18 +77,17 @@ class CoreDataManager {
         }
     }
     func retrievePlayersAndTeamsFromWatchList() -> ([PlayerList]?,[TeamList]?) {
-        var watchedPlayers: [PlayerList] = []
-        var watchedTeams: [TeamList] = []
+        let watchedPlayers: [PlayerList]?
+        let watchedTeams: [TeamList]?
         let fetchTeamRequest = NSFetchRequest<TeamList>(entityName: "TeamList")
         let fetchPlayerRequest = NSFetchRequest<PlayerList>(entityName: "PlayerList")
         do {
-            let teamResult = try managedContext.fetch(fetchTeamRequest) as [TeamList]
-            let playerResult = try managedContext.fetch(fetchPlayerRequest) as [PlayerList]
-            watchedTeams = teamResult
-            watchedPlayers = playerResult
+            watchedTeams = try managedContext.fetch(fetchTeamRequest) as [TeamList]
+            watchedPlayers = try managedContext.fetch(fetchPlayerRequest) as [PlayerList]
+            return (watchedPlayers, watchedTeams)
         } catch {
             print(error)
+            return (nil, nil)
         }
-        return (watchedPlayers, watchedTeams)
     }
 }

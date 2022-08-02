@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -664,7 +665,7 @@
                                 <rect key="frame" x="0.0" y="294" width="414" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="5bT-Uf-a6h" customClass="StandingTableViewCell" customModule="LiveFootball" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StandingsCell" rowHeight="63" id="5bT-Uf-a6h" customClass="StandingTableViewCell" customModule="LiveFootball" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5bT-Uf-a6h" id="Yao-uB-EmU">
@@ -678,7 +679,7 @@
                                                         <constraint firstAttribute="width" constant="42" id="YD3-FD-FWK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0an-cJ-7sv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0an-cJ-7sv">
                                                     <rect key="frame" x="87" y="20.5" width="194" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -687,7 +688,9 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD2-cl-oXg">
                                                     <rect key="frame" x="338" y="21" width="42" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="UYV-na-zeP"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="EfP-5t-Ely"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="UYV-na-zeP"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="toe-OD-YeK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -721,121 +724,38 @@
                                 <rect key="frame" x="215" y="137" width="179" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="C06-Rf-eKM"/>
-                                    <constraint firstAttribute="width" constant="179" id="sov-JI-6Kv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="179" id="sov-JI-6Kv"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league2selected:" destination="VMx-tt-ib1" eventType="touchUpInside" id="7ZA-rL-6Ow"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ8-9J-1mL">
-                                <rect key="frame" x="20" y="137" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="Q6x-9q-TDx"/>
-                                    <constraint firstAttribute="height" constant="28" id="wJj-5R-WQz"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league1selected:" destination="VMx-tt-ib1" eventType="touchUpInside" id="R30-t2-wSX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="989-UZ-aqp">
-                                <rect key="frame" x="20" y="179" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Kea-Iv-iwn"/>
-                                    <constraint firstAttribute="width" constant="179" id="esc-BX-ta7"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league3selected:" destination="VMx-tt-ib1" eventType="touchUpInside" id="2ck-ic-jjn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNi-Qc-ytU">
-                                <rect key="frame" x="215" y="179" width="179" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="e3p-cZ-w7h"/>
-                                    <constraint firstAttribute="height" constant="28" id="kAZ-VA-GYT"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="league4selected:" destination="VMx-tt-ib1" eventType="touchUpInside" id="GFZ-Pp-IA3"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="d2w-Vp-gOp">
-                                <rect key="frame" x="272" y="251" width="122" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="122" id="67L-QJ-x6T"/>
-                                </constraints>
-                            </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-wN-CMd">
-                                <rect key="frame" x="20" y="251" width="90" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="rj3-UU-Pjs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylg-2q-cqq">
-                                <rect key="frame" x="167" y="253" width="80" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="UGH-0Z-bY8"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
-                                <connections>
-                                    <action selector="searchLeagues:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L6b-fb-O14"/>
-                                </connections>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVJ-Ze-Y1b">
+                                <rect key="frame" x="20" y="135" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="nDy-AN-std">
+                                    <children>
+                                        <command title="Item 1" id="izM-q0-dpt"/>
+                                        <command title="Item 2" id="3OC-A8-460"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Country"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5YL-z9-J2S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="leading" secondItem="5hg-wN-CMd" secondAttribute="trailing" constant="57" id="1H5-Se-Do0"/>
-                            <constraint firstItem="qyK-3E-Pyn" firstAttribute="leading" secondItem="JJ8-9J-1mL" secondAttribute="trailing" constant="16" id="5Qe-p0-sWX"/>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" id="9bl-Yb-Mg5"/>
-                            <constraint firstItem="989-UZ-aqp" firstAttribute="top" secondItem="JJ8-9J-1mL" secondAttribute="bottom" constant="14" id="AM9-3h-iAm"/>
-                            <constraint firstItem="fNi-Qc-ytU" firstAttribute="leading" secondItem="qyK-3E-Pyn" secondAttribute="leading" id="B05-2d-9Wq"/>
-                            <constraint firstItem="5hg-wN-CMd" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-179.5" id="EgX-17-Hfd"/>
-                            <constraint firstItem="d2w-Vp-gOp" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-181.5" id="Ffy-Z0-h2d"/>
-                            <constraint firstItem="JJ8-9J-1mL" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="-97.5" id="ID4-f3-Xa4"/>
                             <constraint firstItem="otJ-BG-9Ra" firstAttribute="leading" secondItem="5YL-z9-J2S" secondAttribute="leading" id="Qzr-xT-KMs"/>
-                            <constraint firstItem="d2w-Vp-gOp" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="126" id="T2w-pG-N5T"/>
-                            <constraint firstItem="989-UZ-aqp" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-255" id="T6p-Kd-exU"/>
                             <constraint firstItem="qyK-3E-Pyn" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="97.5" id="VJT-Yc-bKg"/>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-179.5" id="ZU2-tE-T86"/>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="top" secondItem="d2w-Vp-gOp" secondAttribute="top" constant="2" id="Zea-wc-Bef"/>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="centerY" secondItem="5hg-wN-CMd" secondAttribute="centerY" id="aZF-vV-dFx"/>
-                            <constraint firstItem="JJ8-9J-1mL" firstAttribute="baseline" secondItem="qyK-3E-Pyn" secondAttribute="baseline" id="adK-av-DQx"/>
-                            <constraint firstItem="fNi-Qc-ytU" firstAttribute="baseline" secondItem="989-UZ-aqp" secondAttribute="baseline" id="cMp-R2-ryR"/>
-                            <constraint firstItem="Ylg-2q-cqq" firstAttribute="top" secondItem="989-UZ-aqp" secondAttribute="bottom" constant="46" id="dbe-Nt-ExK"/>
                             <constraint firstItem="otJ-BG-9Ra" firstAttribute="top" secondItem="5YL-z9-J2S" secondAttribute="top" constant="98" id="f7b-HX-8Xq"/>
-                            <constraint firstItem="fNi-Qc-ytU" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-255" id="hka-nk-SPd"/>
-                            <constraint firstItem="5hg-wN-CMd" firstAttribute="top" secondItem="d2w-Vp-gOp" secondAttribute="top" id="i6S-sj-ZJw"/>
-                            <constraint firstItem="5hg-wN-CMd" firstAttribute="leading" secondItem="989-UZ-aqp" secondAttribute="leading" id="iLn-DV-s73"/>
-                            <constraint firstItem="JJ8-9J-1mL" firstAttribute="leading" secondItem="989-UZ-aqp" secondAttribute="leading" id="jxb-bN-ujB"/>
                             <constraint firstItem="5YL-z9-J2S" firstAttribute="bottom" secondItem="otJ-BG-9Ra" secondAttribute="bottom" id="lHw-kR-cXU"/>
                             <constraint firstItem="qyK-3E-Pyn" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-297" id="oNp-C4-tAi"/>
-                            <constraint firstItem="JJ8-9J-1mL" firstAttribute="centerY" secondItem="Pdp-Mx-tka" secondAttribute="centerY" constant="-297" id="qD5-7x-2vd"/>
                             <constraint firstItem="5YL-z9-J2S" firstAttribute="trailing" secondItem="otJ-BG-9Ra" secondAttribute="trailing" id="qaL-sw-kPS"/>
-                            <constraint firstItem="989-UZ-aqp" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="-97.5" id="r0G-EH-9Yx"/>
-                            <constraint firstItem="5hg-wN-CMd" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="-142" id="vvV-ug-5Xz"/>
-                            <constraint firstItem="fNi-Qc-ytU" firstAttribute="centerX" secondItem="Pdp-Mx-tka" secondAttribute="centerX" constant="97.5" id="w4j-Iw-EsO"/>
-                            <constraint firstItem="d2w-Vp-gOp" firstAttribute="leading" secondItem="Ylg-2q-cqq" secondAttribute="trailing" constant="25" id="wnn-1o-d3n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I9G-Zi-ovQ"/>
                     <connections>
-                        <outlet property="countryCodeEditor" destination="5hg-wN-CMd" id="85P-5J-G3o"/>
-                        <outlet property="datePicker" destination="d2w-Vp-gOp" id="DhQ-lY-r8Q"/>
-                        <outlet property="league1" destination="JJ8-9J-1mL" id="j1I-tU-ftq"/>
-                        <outlet property="league2" destination="qyK-3E-Pyn" id="QRX-PO-2y3"/>
-                        <outlet property="league3" destination="989-UZ-aqp" id="dOF-S8-xUt"/>
-                        <outlet property="league4" destination="fNi-Qc-ytU" id="xix-CI-814"/>
-                        <outlet property="searchLeagues" destination="Ylg-2q-cqq" id="dTV-iX-fyb"/>
+                        <outlet property="countryList" destination="SVJ-Ze-Y1b" id="76J-3j-1WG"/>
+                        <outlet property="leagueList" destination="qyK-3E-Pyn" id="HnO-gN-YiE"/>
                         <segue destination="E1q-01-307" kind="show" id="dMm-ja-wus"/>
                     </connections>
                 </viewController>
