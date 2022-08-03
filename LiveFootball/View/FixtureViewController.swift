@@ -71,23 +71,6 @@ class FixtureViewController: UIViewController {
                     children: self.leaguesForDropDown )
         }
     }
-    @IBAction func league1Selected(_ sender: Any) {
-        fixtureViewModel.getRangedFixtureData(from: datePicker.date, range: 7, leagueCode: leagueList?.leagues?[0].id ?? 39, season: DateParser.getYearFromDate(date: datePicker.date))
-    }
-    @IBAction func league2Selected(_ sender: Any) {
-        fixtureViewModel.getRangedFixtureData(from: datePicker.date, range: 7, leagueCode: leagueList?.leagues?[1].id ?? 40, season: DateParser.getYearFromDate(date: datePicker.date))
-    }
-    @IBAction func league3Selected(_ sender: Any) {
-        fixtureViewModel.getRangedFixtureData(from: datePicker.date, range: 7, leagueCode: leagueList?.leagues?[2].id ?? 41, season: DateParser.getYearFromDate(date: datePicker.date))
-    }
-    @IBAction func league4Selected(_ sender: Any) {
-        fixtureViewModel.getRangedFixtureData(from: datePicker.date, range: 7, leagueCode: leagueList?.leagues?[3].id ?? 42, season: DateParser.getYearFromDate(date: datePicker.date))
-        
-    }
-    
-    @IBAction func searchLeagues(_ sender: Any) {
-        let season = DateParser.getYearFromDate(date: datePicker.date)
-    }
     /*
     // MARK: - Navigation
 

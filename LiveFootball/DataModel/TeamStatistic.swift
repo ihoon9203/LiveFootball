@@ -24,9 +24,9 @@ struct TeamStatistic: Codable {
 }
 struct Big: Codable {
     let goals: TeamGoal
-    let loses: GoalData
+    let loses: Result
     let streak: Streak
-    let win: Win
+    let wins: Result
 }
 struct TeamGoal: Codable {
     let against: GoalData
@@ -37,7 +37,7 @@ struct Streak: Codable {
     let loses: Int?
     let wins: Int?
 }
-struct Win: Codable {
+struct Result: Codable {
     let away: String?
     let home: String?
 }
@@ -46,10 +46,15 @@ struct MatchGoalStatistic: Codable {
     let home: Int?
     let total: Int?
 }
+struct MatchGoalStatisticInString: Codable {
+    let away: String?
+    let home: String?
+    let total: String?
+}
 struct MatchResult: Codable {
     let draws: MatchGoalStatistic
     let loses: MatchGoalStatistic
-    let palyed: MatchGoalStatistic
+    let played: MatchGoalStatistic
     let wins: MatchGoalStatistic
 }
 struct GoalStatistics: Codable {
@@ -57,7 +62,7 @@ struct GoalStatistics: Codable {
     let `for`: MatchGoalStatContainer
 }
 struct MatchGoalStatContainer: Codable {
-    let average: MatchGoalStatistic
+    let average: MatchGoalStatisticInString
     let total: MatchGoalStatistic
 }
 struct SimpleLineup: Codable {
@@ -71,4 +76,16 @@ struct TeamPenalty: Codable {
 struct PenaltyPercentage: Codable {
     let percentage: String?
     let total: Int?
+}
+struct statWithParsedLogoImage {
+    let statistics: TeamStatistic
+    var logoData = Data()
+    init (data: TeamStatistic, logoURLString: String) {
+        statistics = data
+        if let logoURL = URL(string: logoURLString){
+            if let logoImageData = try? Data(contentsOf: logoURL){
+                logoData = logoImageData
+            }
+        }
+    }
 }

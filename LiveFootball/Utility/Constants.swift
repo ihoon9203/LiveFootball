@@ -20,6 +20,7 @@ class Constants {
     static let fixtureEndpoint = "fixtures"
     static let lineupEndpoint = "fixtures/lineups"
     static let hthEndpoint = "fixtures/headtohead"
+    static let teamStatisticsEndpoint = "teams/statistics"
     
     static let paramCountryCode = "code="
     static let paramSeason = "season="

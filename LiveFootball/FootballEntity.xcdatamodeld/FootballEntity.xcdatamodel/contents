@@ -5,19 +5,7 @@
         <attribute name="flag" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="PlayerEntity" representedClassName="PlayerEntity" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Transformable" customClassName="CDPlayerData"/>
-        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
-        <relationship name="contractedWith" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TeamEntity" inverseName="hasPlayer" inverseEntity="TeamEntity"/>
-    </entity>
-    <entity name="TeamEntity" representedClassName="TeamEntity" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Transformable" customClassName="CDTeamData"/>
-        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0"/>
-        <relationship name="hasPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerEntity" inverseName="contractedWith" inverseEntity="PlayerEntity"/>
-    </entity>
     <elements>
         <element name="CountryEntity" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="PlayerEntity" positionX="130.87109375" positionY="-1.1171875" width="128" height="74"/>
-        <element name="TeamEntity" positionX="314.81640625" positionY="-1.4140625" width="128" height="74"/>
     </elements>
 </model>

@@ -23,6 +23,8 @@ struct LeagueData: Codable {
 }
 struct Stand: Codable {
     let rank: Int?
+    let points: Int?
+    let goalsDiff: Int?
     let team: TeamInfo
     let all: All
 }
@@ -53,17 +55,23 @@ struct StandingModelList {
 }
 struct TeamWithStandingModel {
     let rank: Int?
+    let points: Int?
+    let goalsDiff: Int?
     let played: Int?
     let win: Int?
     let draw: Int?
+    let lose: Int?
     let goals: Int?
     let goalsAgainst: Int?
     let teamInfo: TeamModel
     init(_ data: Stand) {
         rank = data.rank
+        points = data.points
+        goalsDiff = data.goalsDiff
         played = data.all.played
         win = data.all.win
         draw = data.all.draw
+        lose = data.all.lose
         goals = data.all.goals?.`for`
         goalsAgainst = data.all.goals?.against
         teamInfo = TeamModel(data.team)

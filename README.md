@@ -19,3 +19,5 @@ The user can also view the statistical data on a match, team, and player, and us
     1. User must be connected to internet to get fixture/team/player data
     2. Player or Team on watchlist data may not be updated if user is not connected to the internet.
 
+## Limitations
+    1. As the application is showing the whole European and non-European leagues, it is impossible to show all leagues in unified season metrics. Hence, the choice of season is disabled and can only view the current season data.

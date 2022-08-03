@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import Charts
 
 class TeamViewController: UIViewController {
     var teamStatistics: TeamStatistic?
     var teamFixtureList: SimpleFixtureModelList?
+    var teamDetailViewModel = TeamDetailViewModel()
+    // these values are coming from the segue
+    var teamId: Int!
+    var leagueCode: Int!
+    var season: Int!
+    @IBOutlet weak var teamLogo: UIImageView!
+    @IBOutlet weak var teamName: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        teamDetailViewModel.delegate = self
+        teamDetailViewModel.getTotalTeamData(leagueCode: leagueCode, teamCode: teamId, season: season)
+        
     }
     
 
@@ -30,8 +42,11 @@ class TeamViewController: UIViewController {
 }
 
 extension TeamViewController: TeamCommunicationProtocol {
-    func notifyTeamStatisticDataProvided(_ teamStat: TeamStatistic) {
-        teamStatistics = teamStat
+    func notifyTeamStatisticDataProvided(_ teamStat: statWithParsedLogoImage) {
+        teamStatistics = teamStat.statistics
+        DispatchQueue.main.async {
+            self.teamLogo.image = UIImage(data: teamStat.logoData)
+        }
     }
     
     func notifyNextFixtureDataProvided(_ fixture: SimpleFixtureModelList) {

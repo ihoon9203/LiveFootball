@@ -32,4 +32,10 @@ class DateParser {
         let age = ageComponents.year
         return String(age!)
     }
+    static func getLatestSeason() -> Int {
+        let dateFormatter = DateFormatter()
+        // dateFormatter.dateFormat = "yyyy-MM-dd%"
+        let year = Calendar.current.component(.year, from: Date())
+        return year
+    }
 }
